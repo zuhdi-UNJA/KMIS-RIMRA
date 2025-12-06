@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Penguatan Forum Multipihak pada Kawasan Ekosistem Gambut dan Koridor Gajah</title>
+  <style>
+    :root{
+      --bg-dark: #02220f;
+      --bg-light: #0c3b26;
+      --bg-card: rgba(255, 255, 255, 0.08);
+      --accent: #9be58c;
+      --accent-soft: #2f7a4a;
+      --text-main: #f5fff6;
+      --text-muted: #cce7d4;
+      --heading: #b0ffb3;
+      --border-soft: rgba(255,255,255,0.14);
+      --shadow-soft: 0 20px 40px rgba(0,0,0,0.55);
+      --radius-lg: 18px;
+    }
+
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body{
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(155, 229, 140, 0.18), transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(96, 191, 124, 0.25), transparent 55%),
+        linear-gradient(145deg, var(--bg-dark), var(--bg-light));
+      background-attachment: fixed;
+      padding: 32px 16px;
+    }
+
+    .forest-layer{
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(135deg, rgba(5, 56, 26, 0.7) 0, transparent 55%),
+        repeating-linear-gradient(
+          145deg,
+          rgba(12, 59, 38, 0.35),
+          rgba(12, 59, 38, 0.35) 1px,
+          transparent 1px,
+          transparent 12px
+        );
+      mix-blend-mode: soft-light;
+      opacity: 0.8;
+      z-index: -1;
+    }
+
+    .container{
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .card{
+      background: radial-gradient(circle at top left,
+                   rgba(155,229,140,0.09),
+                   rgba(0,0,0,0.75));
+      border-radius: 24px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-soft);
+      padding: 28px 22px 32px;
+      backdrop-filter: blur(14px);
+    }
+
+    @media (min-width: 768px){
+      body{
+        padding: 40px;
+      }
+      .card{
+        padding: 32px 36px 40px;
+      }
+    }
+
+    .badge{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(155,229,140,0.35);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .badge-dot{
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(155,229,140,0.9);
+    }
+
+    h1{
+      font-size: 1.8rem;
+      line-height: 1.25;
+      margin-bottom: 8px;
+      color: var(--heading);
+      text-shadow: 0 0 14px rgba(0,0,0,0.7);
+    }
+
+    .subtitle{
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin-bottom: 20px;
+    }
+
+    hr{
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      margin: 18px 0 22px;
+    }
+
+    .section{
+      margin-bottom: 24px;
+      padding: 16px 16px 18px;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left,
+                   rgba(155,229,140,0.11),
+                   rgba(0,0,0,0.76));
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .section-header{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .section-pill{
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #e6ffe6, #0f5a2f);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #02160d;
+      box-shadow: 0 0 0 1px rgba(176,255,179,0.7);
+    }
+
+    .section h2{
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--heading);
+    }
+
+    .section h3{
+      font-size: 1rem;
+      margin: 10px 0 6px;
+      color: var(--accent);
+    }
+
+    p{
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    ul, ol{
+      margin: 4px 0 8px 18px;
+      font-size: 0.94rem;
+      line-height: 1.6;
+      color: var(--text-main);
+    }
+
+    li + li{
+      margin-top: 2px;
+    }
+
+    .muted{
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .teacher-list{
+      list-style: none;
+      margin-left: 0;
+    }
+
+    .teacher-list li::before{
+      content: "🍃 ";
+    }
+
+    .pill-tag{
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(176,255,179,0.45);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .eval-block{
+      display: grid;
+      gap: 14px;
+    }
+
+    @media (min-width: 768px){
+      .eval-block{
+        grid-template-columns: 1.1fr 1.2fr;
+      }
+    }
+
+    .eval-card{
+      padding: 12px 14px 14px;
+      border-radius: 16px;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .eval-card h3{
+      font-size: 0.98rem;
+      margin-bottom: 6px;
+      color: var(--accent);
+    }
+
+    .eval-card ul{
+      margin-left: 16px;
+    }
+
+    .footer-note{
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px dashed rgba(255,255,255,0.16);
+      padding-top: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="forest-layer"></div>
+  <main class="container">
+    <article class="card">
+
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Bahan Ajar – Ekosistem Gambut & Koridor Gajah
+      </div>
+
+      <header>
+        <h1>PENGUATAN FORUM MULTIPIHAK PADA KAWASAN EKOSISTEM GAMBUT DAN KORIDOR GAJAH</h1>
+        <p class="subtitle">
+          Bahan ajar ini disusun untuk memperkenalkan peran forum multipihak dalam pengelolaan
+          ekosistem gambut dan koridor gajah yang kompleks, khususnya di Provinsi Jambi.
+        </p>
+      </header>
+
+      <hr/>
+
+      <!-- Nama Pengajar -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">01</div>
+          <h2>Nama Pengajar</h2>
+        </div>
+        <ul class="teacher-list">
+          <li>Dr. Ir. Hamzah, M.Si.</li>
+          <li>Femei Rahmilija, S.Kut., M.Si.</li>
+        </ul>
+      </section>
+
+      <!-- Tujuan Pembelajaran -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">02</div>
+          <h2>Tujuan Pembelajaran</h2>
+        </div>
+        <p>Setelah mengikuti pembelajaran ini, mahasiswa diharapkan mampu:</p>
+        <ul>
+          <li>Menjelaskan pentingnya ekosistem gambut dan koridor gajah serta tantangan pengelolaannya.</li>
+          <li>Memahami konsep dan fungsi forum multipihak dalam tata kelola lanskap yang kompleks.</li>
+          <li>Mengidentifikasi bentuk forum multipihak yang telah ada di Provinsi Jambi serta perannya.</li>
+          <li>Menganalisis isu dan tantangan tata kelola di KHG dan koridor gajah.</li>
+          <li>Menyusun alternatif solusi dan strategi penguatan forum multipihak dalam konteks pengelolaan lingkungan.</li>
+        </ul>
+      </section>
+
+      <!-- Materi Pembelajaran -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">03</div>
+          <h2>Materi Pembelajaran</h2>
+        </div>
+
+        <h3>1. Konteks Ekosistem Gambut dan Koridor Gajah di Provinsi Jambi</h3>
+        <p>
+          Kawasan ekosistem gambut dan koridor gajah Provinsi Jambi merupakan dua lanskap yang memiliki
+          karakteristik ekologis, sosial, dan tata kelola yang sangat kompleks. Gambut berfungsi sebagai
+          penyimpan karbon raksasa, pengatur hidrologi, dan habitat keanekaragaman hayati, sementara
+          koridor gajah menjadi ruang jelajah penting untuk menjaga konektivitas populasi gajah Sumatera
+          yang semakin terfragmentasi.
+        </p>
+        <p>
+          Dalam kedua konteks ini, berbagai kepentingan bertemu termasuk pemerintah, masyarakat adat dan lokal,
+          organisasi masyarakat sipil, perusahaan, akademisi, dan pelaku usaha. Masing-masing membawa mandat,
+          kepentingan, kapasitas, dan cara pandang yang berbeda terhadap bagaimana lanskap seharusnya dikelola.
+        </p>
+        <p>
+          Perbedaan ini tidak serta-merta menjadi hambatan. Justru, ketika dimediasi dengan baik, keberagaman
+          perspektif tersebut dapat menjadi sumber solusi yang lebih komprehensif dan berkelanjutan. Dari
+          kebutuhan inilah forum multipihak hadir sebagai ruang kolaboratif yang mempertemukan berbagai pihak
+          secara setara untuk mendiskusikan persoalan, menyepakati arah kerja, serta mengambil keputusan bersama
+          dalam pengelolaan ekosistem gambut dan koridor gajah.
+        </p>
+        <ul>
+          <li>Ekosistem gambut memiliki fungsi ekologis: penyimpanan karbon, pengatur hidrologi, habitat biodiversitas, serta sumber penghidupan masyarakat.</li>
+          <li>Koridor gajah di Bukit Tigapuluh merupakan jalur pergerakan satwa kunci: gajah, harimau, tapir.</li>
+          <li>Ancaman utama: fragmentasi habitat, alih fungsi lahan, kanal, kebakaran gambut, infrastruktur, dan konflik manusia–satwa.</li>
+        </ul>
+
+        <h3>2. Definisi dan Perlunya Forum Multipihak</h3>
+        <p>
+          Forum multipihak adalah wadah kolaboratif yang mempertemukan beragam aktor untuk: berbagi informasi
+          dan data, mengidentifikasi masalah bersama, menyepakati agenda prioritas, merancang solusi, serta
+          mengkoordinasikan tindakan di lapangan.
+        </p>
+        <p>
+          Forum bukan lembaga formal pemerintahan, tetapi memiliki fungsi strategis dalam memperkuat koordinasi,
+          membangun kesepahaman, dan menciptakan keputusan kolektif di tingkat lanskap.
+        </p>
+
+        <p class="pill-tag">Prinsip Dasar Forum Multipihak:</p>
+        <ul>
+          <li>Inklusivitas: semua pihak yang relevan punya ruang suara.</li>
+          <li>Transparansi: data, proses, dan keputusan dapat dipertanggungjawabkan.</li>
+          <li>Representasi seimbang: tidak ada aktor yang mendominasi.</li>
+          <li>Akuntabilitas: setiap keputusan jelas penanggung jawabnya.</li>
+          <li>Berbasis bukti (evidence-based): keputusan didasarkan pada data.</li>
+        </ul>
+
+        <p>Diperlukannya forum multipihak dalam pengelolaan gambut dan persoalan koridor gajah karena:</p>
+        <ul>
+          <li>Persoalan gambut dan koridor gajah bersifat lintas-sektor, lintas-kewenangan, dan lintas-aktor.</li>
+        </ul>
+        <p>Dibutuhkan untuk:</p>
+        <ul>
+          <li>Mengurangi tumpang tindih kebijakan.</li>
+          <li>Mempertemukan kepentingan pemerintah, masyarakat, perusahaan, LSM, akademisi.</li>
+          <li>Berbagi dan menyepakati basis data bersama.</li>
+          <li>Menjadi ruang dialog dan pengambilan keputusan kolaboratif.</li>
+        </ul>
+
+        <h3>3. Pengelolaan Ekosistem Gambut di Jambi</h3>
+        <ul>
+          <li>Lahan gambut berfungsi penting sebagai penyangga tata air, penyimpan karbon jangka panjang, dan habitat flora–fauna endemik, sekaligus sumber penghidupan utama masyarakat melalui pertanian, perkebunan, dan HHBK. Karena itu, pengelolaan gambut di Jambi harus menggabungkan tujuan konservasi dengan dimensi sosial, ekonomi, dan budaya masyarakat sekitarnya, bukan hanya fokus pada aspek ekologis semata.
+Saat ini ekosistem gambut menghadapi tekanan berat akibat alih fungsi lahan, pembukaan kanal, dan kebakaran berulang yang merusak hidrologi dan menurunkan fungsi ekologisnya. Kebakaran menimbulkan kerugian ekonomi dan kesehatan, serta menyumbang emisi karbon besar yang memperburuk krisis iklim, sehingga diperlukan transformasi tata kelola menuju model pengelolaan berkelanjutan dalam kerangka kolaboratif berbagai pihak.
+Upaya restorasi seperti sekat kanal, rewetting, dan pemberdayaan MPA sudah berjalan tetapi masih terkotak-kotak dan kurang terkoordinasi. Karena itu, dibutuhkan forum multipihak sebagai ruang komunikasi dan koordinasi kebijakan, yang dapat memperkuat tata kelola gambut, mengurangi konflik pemanfaatan lahan di KHG Batanghari–Kumpeh dan Batanghari–Mendahara, serta mendukung agenda nasional pengendalian karhutla dan mitigasi perubahan iklim.
+</li>
+        </ul>
+        <p>Forum multipihak diperlukan untuk:</p>
+        <ul>
+          <li>Sinkronisasi rencana restorasi,</li>
+          <li>Mediasi konflik pemanfaatan ruang,</li>
+          <li>Integrasi program lintas instansi.</li>
+        </ul>
+
+        <h3>4. Pengelolaan Koridor Gajah di Lanskap Bukit Tigapuluh</h3>
+        <p>Lanskap Bukit Tigapuluh merupakan kawasan dengan keanekaragaman hayati tinggi di Sumatera dan menjadi habitat penting bagi satwa langka seperti gajah, harimau, dan tapir. Kawasan ini berperan sebagai penghubung antara hutan dataran rendah dan kawasan konservasi lain, dengan Koridor Datuk Gedang sebagai jalur migrasi utama gajah antara kawasan konservasi dan areal penggunaan lain.
+Dalam dua dekade terakhir, pembangunan dan konversi hutan menjadi perkebunan, permukiman, serta jalan telah memecah habitat dan mempersempit ruang jelajah gajah, sehingga konflik manusia–gajah meningkat di beberapa desa. Situasi ini makin rumit karena adanya tumpang tindih antara konsesi perusahaan dan program perhutanan sosial, yang menyulitkan pengelolaan kawasan.
+Kondisi tersebut menuntut pengelolaan lanskap berbasis konektivitas ekologis, di mana koridor gajah dipandang sebagai ruang hidup yang dikelola bersama, bukan sekadar jalur satwa. Pemerintah, BKSDA, perusahaan PBPH, masyarakat desa, dan LSM harus memiliki kesepahaman dan rencana aksi bersama agar fungsi ekologis koridor tetap terjaga tanpa menghambat pembangunan sosial ekonomi.
+Pembentukan Forum Multipihak Koridor Gajah menjadi langkah strategis untuk menyatukan kebijakan, memediasi kepentingan, dan merancang strategi kolaboratif perlindungan dan restorasi habitat gajah. Forum ini diharapkan menjadi platform koordinasi lintas sektor sekaligus ruang konsultasi dan penyusunan kebijakan berbasis konsensus, serta mendorong ekonomi alternatif berbasis konservasi seperti ekowisata gajah, kemitraan pertanian ramah satwa, dan pendidikan lingkungan.
+
+          Koridor Datuk Gedang adalah jalur pergerakan utama gajah di luar TNBT. Tantangan yang dihadapi antara lain:
+        </p>
+        <ul>
+          <li>Fragmentasi habitat oleh perkebunan dan pemukiman.</li>
+          <li>Konflik manusia–gajah.</li>
+          <li>Tumpang tindih perizinan dan perhutanan sosial.</li>
+        </ul>
+        <p>
+          Forum multipihak berperan dalam integrasi kebijakan, mitigasi konflik, dan perlindungan konektivitas ekologi.
+        </p>
+
+        <h3>5. Forum Multipihak yang Sudah Ada di Provinsi Jambi</h3>
+
+        <p><strong>a. Forum KHG Sungai Mendahara – Batanghari</strong></p>
+        <ul>
+          <li>Dibentuk melalui Keputusan Gubernur 1122/2023.</li>
+          <li>Fokus: pemulihan hidrologi, restorasi, tata guna lahan, koordinasi lintas sektor.</li>
+          <li>Tantangan: keterbatasan pendanaan, legalitas operasional lemah, aktivitas forum pasif.</li>
+        </ul>
+
+        <p><strong>b. Forum Gambut Tanjung Jabung Timur</strong></p>
+        <ul>
+          <li>Berfokus pada HLG Sungai Buluh.</li>
+          <li>Kegiatan: rehabilitasi gambut, integrasi perhutanan sosial, kemitraan ekonomi masyarakat–perusahaan.</li>
+          <li>Tantangan: anggaran terbatas, koordinasi antarlevel belum optimal.</li>
+        </ul>
+
+        <p><strong>c. Forum KEE/KHL Datuk Gedang</strong></p>
+        <ul>
+          <li>Dibentuk melalui Pergub No. 8/2022.</li>
+          <li>Anggota: pemerintah, perusahaan, LSM, masyarakat.</li>
+          <li>Tantangan: forum pasif, belum ada sekretariat aktif.</li>
+        </ul>
+
+        <p><strong>d. Platform Kolaborasi Bukit Tigapuluh (PKBT)</strong></p>
+        <ul>
+          <li>Anggota: LAJ, WKS, TMA, RHM, ABT, RLU, dan lainnya.</li>
+          <li>Fokus: sinkronisasi antar konsesi, restorasi, konservasi.</li>
+          <li>Tantangan: perbedaan kepentingan antarperusahaan.</li>
+        </ul>
+
+        <h3>6. Isu Strategis Penguatan Forum Gambut</h3>
+        <p>Lokasi kajian: Desa Pandan Sejahtera, Pandan Makmur, Rantau Panjang, Seponjen.</p>
+        <p>Empat pilar solusi:</p>
+        <ul>
+          <li>Pencegahan &amp; mitigasi bencana (rewetting, penanganan banjir, penegakan hukum kanal).</li>
+          <li>Rehabilitasi &amp; restorasi (agroforestry, tanaman bernilai ekonomi, perlindungan keanekaragaman hayati).</li>
+          <li>Tata kelola kawasan hutan (penataan blok, revisi izin PS, perlindungan gambut dalam).</li>
+          <li>Pemberdayaan masyarakat (pertanian tanpa bakar, ekonomi hijau, permodalan).</li>
+        </ul>
+
+        <h3>7. Solusi Strategis Pengelolaan Koridor Gajah</h3>
+        <p>Tiga isu prioritas: fragmentasi habitat, pagar listrik, peracunan.</p>
+
+        <p><strong>a. Mengatasi Fragmentasi Habitat</strong></p>
+        <ul>
+          <li>Penetapan koridor sebagai Areal Preservasi.</li>
+          <li>Restorasi lahan kritis dengan tanaman pakan.</li>
+          <li>Pembatasan ekspansi HTI/perkebunan.</li>
+          <li>Pengembangan skema koridor lintas konsesi.</li>
+        </ul>
+
+        <p><strong>b. Pengendalian Pagar Listrik</strong></p>
+        <ul>
+          <li>Larangan pagar listrik permanen.</li>
+          <li>Penggunaan penghalau alternatif non-mematikan.</li>
+          <li>Penyusunan pedoman mitigasi konflik.</li>
+          <li>Pembentukan <em>buffer zone</em> tanaman yang tidak disukai gajah.</li>
+        </ul>
+
+        <p><strong>c. Menghapus Praktik Peracunan</strong></p>
+        <ul>
+          <li>Penegakan hukum.</li>
+          <li>Tim respons cepat konflik.</li>
+          <li>Skema kompensasi kerusakan lahan.</li>
+          <li>Edukasi dan kampanye konservasi.</li>
+        </ul>
+
+        <h3>8. Dasar Hukum Penguatan Forum Multipihak</h3>
+        <ul>
+          <li>PP 57/2016 – Perlindungan dan Pengelolaan Ekosistem Gambut.</li>
+          <li>PermenLHK 4/2024 – Penugasan Restorasi Gambut.</li>
+          <li>UU 5/1990 – Konservasi SDA Hayati.</li>
+          <li>UU 32/2024 – Konservasi SDA Hayati (nomenklatur KEE → Areal Preservasi).</li>
+        </ul>
+        <p>
+          Forum multipihak berfungsi sebagai jembatan koordinatif sambil menunggu aturan turunan teknis yang
+          lebih operasional.
+        </p>
+      </section>
+
+      <!-- Evaluasi -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">04</div>
+          <h2>Evaluasi</h2>
+        </div>
+
+        <div class="eval-block">
+          <div class="eval-card">
+            <h3>A. Pertanyaan</h3>
+            <ul>
+              <li>Mengapa ekosistem gambut dan koridor gajah dikategorikan sebagai lanskap yang sangat kompleks?</li>
+              <li>Jelaskan tiga alasan mengapa forum multipihak diperlukan dalam pengelolaan gambut.</li>
+              <li>Sebutkan tantangan utama dalam pengelolaan koridor gajah Datuk Gedang.</li>
+              <li>Apa perbedaan peran Forum KHG dan Forum KEE/KHL Datuk Gedang?</li>
+              <li>Mengapa restorasi gambut harus mempertimbangkan aspek sosial-ekonomi?</li>
+              <li>Jelaskan bagaimana pagar listrik dapat mempengaruhi konektivitas satwa liar.</li>
+              <li>Sebutkan empat pilar solusi strategis pengelolaan gambut di Jambi.</li>
+            </ul>
+          </div>
+
+          <div class="eval-card">
+            <h3>B. Tugas</h3>
+            <p><strong>Tugas Individu – Analisis Kebijakan (2–3 halaman)</strong></p>
+            <p>
+              Pilih salah satu forum multipihak (Forum KHG, Forum Gambut Tanjabtim, Forum KEE/KHL, atau PKBT) dan analisis:
+            </p>
+            <ul>
+              <li>Kekuatan dan kelemahan forum tersebut;</li>
+              <li>Tantangan koordinasi lintas sektor;</li>
+              <li>Rekomendasi penguatan struktural dan fungsional.</li>
+            </ul>
+
+            <p><strong>Tugas Kelompok – Penyusunan Rencana Aksi</strong></p>
+            <p>
+              Buat <em>Rencana Aksi Penguatan Forum Multipihak</em> untuk satu isu berikut:
+            </p>
+            <ul>
+              <li>Restorasi gambut desa;</li>
+              <li>Mitigasi konflik gajah;</li>
+              <li>Pengelolaan koridor lintas konsesi.</li>
+            </ul>
+            <p>
+              Output berupa tabel: tujuan, kegiatan, aktor, waktu, sumber daya.
+            </p>
+          </div>
+        </div>
+
+        <p class="footer-note">
+          Catatan: Pertanyaan dan tugas dapat disesuaikan dengan tingkat kedalaman diskusi kelas dan
+          konteks studi kasus lokal yang sedang dibahas.
+        </p>
+      </section>
+
+    </article>
+  </main>
+</body>
+</html>
