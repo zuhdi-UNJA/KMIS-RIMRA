@@ -13,64 +13,105 @@
     header{background:var(--accent);color:#fff;padding:18px 24px}
     header h1{margin:0;font-size:20px}
     main{max-width:980px;margin:24px auto;padding:0 16px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-    .card{background:var(--card);border-radius:8px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-    .card h2{margin:0 0 8px;font-size:16px;color:var(--accent)}
-    .card p{margin:0 0 12px;color:var(--muted);font-size:14px}
-    .btn{display:inline-block;background:var(--accent);color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none;font-weight:600}
-    footer{max-width:980px;margin:24px auto;color:var(--muted);font-size:13px;padding:0 16px}
-    nav.breadcrumb{margin-top:8px;color:#fff;font-size:13px}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:16px;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:8px;
+      padding:16px;
+      box-shadow:0 1px 4px rgba(0,0,0,.06);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .card h2{margin:8px 0;font-size:16px;color:var(--accent);text-align:center}
+    .card p{margin:0 0 12px;color:var(--muted);font-size:14px;text-align:center}
+
+    /* --- revised thumbnail size --- */
+    .thumb{
+      width:100px;
+      height:100px;
+      border-radius:8px;
+      margin-bottom:12px;
+      object-fit:contain;
+      background:#f0f0f0;
+    }
+
+    .btn{
+      display:inline-block;background:var(--accent);color:#fff;
+      padding:8px 12px;border-radius:6px;text-decoration:none;
+      font-weight:600;margin-top:auto;
+    }
+
+    footer{
+      max-width:980px;margin:24px auto;
+      color:var(--muted);font-size:13px;padding:0 16px
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Bahan Ajar — Pembelajaran: Pemulihan Ekosistem Gambut (Bab 6)</h1>
-    <div class="breadcrumb">Modul: 5 Topik inti — Konflik Tenurial · Ekonomi Hijau · Forum Gajah · Perubahan Perilaku Kebakaran · Pembasahan Gambut</div>
-  </header>
 
-  <main>
-    <p style="color:var(--muted)">Pilih topik untuk melihat halaman utama bahan ajar. Setiap topik berisi ringkasan konsep, tujuan pembelajaran, materi inti, studi kasus, aktivitas kelas, dan referensi singkat.</p>
+<header>
+  <h1>Bahan Ajar — Pemulihan Ekosistem Gambut</h1>
+  <div class="breadcrumb">5 Topik: Konflik Tenurial · Ekonomi Hijau · Forum Gajah · Perubahan Perilaku Kebakaran · Pembasahan Gambut</div>
+</header>
 
-    <div class="grid">
-      <article class="card">
-        <h2>1 — Konflik Tenurial</h2>
-        <p>Pengantar konflik lahan dan kepemilikan di lanskap gambut, implikasi pada restorasi dan pengelolaan.</p>
-        <a class="btn" href="konflik-tenurial.html">Buka Topik</a>
-      </article>
+<main>
 
-      <article class="card">
-        <h2>2 — Ekonomi Hijau</h2>
-        <p>Prinsip ekonomi berkelanjutan, model insentif untuk restorasi gambut, dan peluang ekonomi masyarakat.</p>
-        <a class="btn" href="ekonomi-hijau.html">Buka Topik</a>
-      </article>
+  <p style="color:var(--muted);margin-bottom:20px">
+    Pilih topik berikut untuk membuka modul pembelajaran.
+  </p>
 
-      <article class="card">
-        <h2>3 — Forum Gajah</h2>
-        <p>Konsep forum multipihak (Forum Gajah) sebagai mekanisme koordinasi lokal dalam pengelolaan lanskap.</p>
-        <a class="btn" href="forum-gajah.html">Buka Topik</a>
-      </article>
+  <div class="grid">
 
-      <article class="card">
-        <h2>4 — Perubahan Perilaku Kebakaran</h2>
-        <p>Strategi perubahan perilaku untuk pencegahan kebakaran gambut: edukasi, insentif, dan aturan lokal.</p>
-        <a class="btn" href="perubahan-prilaku.html">Buka Topik</a>
-      </article>
+    <!-- 1. Konflik Tenurial -->
+    <article class="card">
+      <img class="thumb" src="images/img_konflik1.png" alt="Konflik Tenurial">
+          <p>Membahas dinamika kepemilikan lahan dan dampaknya pada pengelolaan gambut.</p>
+      <a class="btn" href="konflik-tenurial.html">Buka</a>
+    </article>
 
-      <article class="card">
-        <h2>5 — Pembasahan Gambut</h2>
-        <p>Teknik rewetting, desain IPG, analisis prioritas lokasi, dan monitoring hidrologi.</p>
-        <a class="btn" href="pembasahan-gambut.html">Buka Topik</a>
-      </article>
-    </div>
+    <!-- 2. Ekonomi Hijau -->
+    <article class="card">
+      <img class="thumb" src="images/img_ekohijau1.png" alt="Ekonomi Hijau">
+      <p>Konsep ekonomi berkelanjutan dan peluang usaha ramah gambut.</p>
+      <a class="btn" href="ekonomi-hijau.html">Buka</a>
+    </article>
 
-    <section style="margin-top:20px" class="card">
-      <h2>Petunjuk Penggunaan</h2>
-      <p style="margin:0;color:var(--muted)">Gunakan tautan di atas untuk membuka modul. Setiap halaman berisi ringkasan materi, aktivitas pembelajaran (diskusi/FGD), dan referensi yang dapat diunduh atau dicetak untuk pembelajaran.</p>
-    </section>
-  </main>
+    <!-- 3. Forum Gajah -->
+    <article class="card">
+      <img class="thumb" src="images/img_forgajah1.png" alt="Forum Gajah">
+           <p>Koordinasi multipihak dalam memberi ruang untuk gajah</p>
+      <a class="btn" href="forum-gajah.html">Buka</a>
+    </article>
 
-  <footer>
-    <div>Disusun oleh: Tim Universitas Jambi — Modul berbasis laporan <em>Penyusunan Strategi Pemulihan Ekosistem Gambut</em></div>
-  </footer>
+    <!-- 4. Perubahan Perilaku Kebakaran -->
+    <article class="card">
+      <img class="thumb" src="images/img_kebakaran1.png" alt="Perubahan Perilaku Kebakaran">
+            <p>Strategi perubahan perilaku untuk mencegah kebakaran gambut.</p>
+      <a class="btn" href="perubahan-prilaku.html">Buka</a>
+    </article>
+
+    <!-- 5. Pembasahan Gambut -->
+    <article class="card">
+      <img class="thumb" src="images/img_pbshgambut1.png" alt="Pembasahan Gambut">
+            <p>Teknik pembasahan, sekat kanal, sumur bor, dan monitoring TMA.</p>
+      <a class="btn" href="pembasahan-gambut.html">Buka</a>
+    </article>
+
+  </div>
+
+</main>
+
+<footer>
+  Disusun oleh Tim Universitas Jambi — 2025
+</footer>
+
 </body>
 </html>
