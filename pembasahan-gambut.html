@@ -95,3 +95,662 @@
     }
 
     .subtitle{
+      font-size:0.96rem;
+      color:var(--text-muted);
+      max-width:720px;
+      margin-bottom:18px;
+    }
+
+    hr{
+      border:none;
+      border-top:1px solid rgba(255,240,220,0.2);
+      margin:18px 0 22px;
+    }
+
+    .section{
+      margin-bottom:26px;
+      padding:16px 16px 18px;
+      border-radius:18px;
+      background:radial-gradient(circle at top left,
+                   rgba(213,161,90,0.12),
+                   rgba(26,14,9,0.97));
+      border:1px solid rgba(255,240,220,0.08);
+    }
+
+    .section-header{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:10px;
+    }
+
+    .section-pill{
+      width:22px;height:22px;border-radius:999px;
+      background:radial-gradient(circle at 30% 20%,#ffe9c7,#8c5a32);
+      display:flex;align-items:center;justify-content:center;
+      font-size:0.78rem;font-weight:600;color:#2a140a;
+      box-shadow:0 0 0 1px rgba(213,161,90,0.7);
+    }
+
+    .section h2{
+      font-size:1.05rem;
+      letter-spacing:0.03em;
+      text-transform:uppercase;
+      color:var(--accent);
+    }
+
+    h3{
+      font-size:0.98rem;
+      margin:9px 0 4px;
+      color:var(--accent-green);
+    }
+
+    p{
+      font-size:0.94rem;
+      line-height:1.6;
+      color:var(--text-main);
+      margin-bottom:7px;
+    }
+
+    ul,ol{
+      margin:4px 0 8px 20px;
+      font-size:0.93rem;
+      line-height:1.6;
+      color:var(--text-main);
+    }
+
+    li + li{margin-top:2px;}
+
+    .muted{color:var(--text-muted);font-size:0.88rem;}
+
+    .teacher-list{list-style:none;margin-left:0;}
+    .teacher-list li::before{content:"🪵 ";}
+
+    .pill-tag{
+      display:inline-flex;align-items:center;
+      padding:2px 9px;border-radius:999px;
+      background:rgba(0,0,0,0.6);
+      border:1px solid rgba(213,161,90,0.45);
+      font-size:0.8rem;color:var(--text-muted);
+      margin-bottom:4px;
+    }
+
+    .two-cols{
+      display:grid;gap:14px;
+    }
+
+    @media (min-width:900px){
+      .two-cols{grid-template-columns:1.05fr 1.05fr;}
+    }
+
+    .image-block{
+      margin:10px 0 8px;
+      padding:10px;
+      border-radius:14px;
+      background:rgba(0,0,0,0.45);
+      border:1px dashed rgba(255,240,220,0.25);
+    }
+
+    figure{margin:0;text-align:center;}
+    figure img{
+      max-width:100%;
+      border-radius:10px;
+      border:1px solid rgba(255,240,220,0.22);
+      margin-bottom:4px;
+    }
+    figure figcaption{
+      font-size:0.86rem;
+      color:var(--text-muted);
+      font-style:italic;
+    }
+
+    .eval-grid{
+      display:grid;gap:14px;
+    }
+
+    @media (min-width:900px){
+      .eval-grid{grid-template-columns:1.05fr 1.1fr;}
+    }
+
+    .eval-card{
+      padding:12px 14px 14px;
+      border-radius:16px;
+      background:rgba(0,0,0,0.6);
+      border:1px solid rgba(255,240,220,0.2);
+    }
+
+    .eval-card h3{
+      font-size:0.96rem;
+      margin-bottom:6px;
+      color:var(--accent-green);
+    }
+
+    .footer-note{
+      margin-top:10px;
+      font-size:0.86rem;
+      color:var(--text-muted);
+      border-top:1px dashed rgba(255,240,220,0.18);
+      padding-top:8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="peat-layer"></div>
+
+  <main class="container">
+    <article class="card">
+
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Bahan Ajar – Pembasahan Kembali Gambut (Klaster 2)
+      </div>
+
+      <header>
+        <h1>PEMBASAHAN KEMBALI GAMBUT PADA KPH EKSISTING DI KLASTER 2 DAN PEMETAAN PERAN MULTIPIHak</h1>
+        <p class="subtitle">
+          Ringkasan bahan ajar tentang pembasahan kembali (rewetting) gambut di Klaster 2
+          Koridor Ekosistem RIMBA, peran multipihak, analisis hidrologi, IPG, dan rencana
+          aksi di empat desa prioritas.
+        </p>
+      </header>
+
+      <hr/>
+
+      <!-- 01 Nama Pengajar -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">01</div>
+          <h2>Nama Pengajar</h2>
+        </div>
+        <ul class="teacher-list">
+          <li>Dr. Ir. Asmadi Saad, M.Si.</li>
+          <li>Dr. Ir. Mohd. Zuhdi, M.Sc.</li>
+          <li>Diah Listyarini, S.P., M.Si.</li>
+        </ul>
+      </section>
+
+      <!-- 02 Tujuan Pembelajaran -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">02</div>
+          <h2>Tujuan Pembelajaran</h2>
+        </div>
+        <p>Setelah mengikuti pembelajaran ini, mahasiswa diharapkan mampu:</p>
+        <ul>
+          <li>Menjelaskan fungsi ekosistem gambut dan makna pembasahan kembali (rewetting) sebagai bagian dari restorasi gambut.</li>
+          <li>Menguraikan hubungan pembasahan gambut dengan mitigasi kebakaran, penurunan subsidensi, dan pengurangan emisi karbon.</li>
+          <li>Memahami peran strategis KPH dan pentingnya koordinasi multipihak di tingkat tapak.</li>
+          <li>Menganalisis tujuan, ruang lingkup, dan metodologi kegiatan pembasahan gambut di Klaster 2.</li>
+          <li>Menginterpretasi peta IPG, peta ketebalan gambut, hotspot, jaringan kanal, dan peta prioritas pembasahan.</li>
+          <li>Menjelaskan hasil pemetaan peran multipihak dan matriks RACI pada kegiatan pembasahan gambut.</li>
+          <li>Menyusun usulan rencana aksi pembasahan gambut berbasis data dan peta prioritas untuk salah satu desa.</li>
+        </ul>
+      </section>
+
+      <!-- 03 Pendahuluan: Fungsi Gambut & Pembasahan -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">03</div>
+          <h2>Pendahuluan: Gambut dan Pembasahan Kembali</h2>
+        </div>
+
+        <h3>3.1 Gambut sebagai Penyimpan Karbon dan Pengatur Hidrologi</h3>
+        <p>
+          Ekosistem gambut merupakan penyimpan karbon daratan yang sangat besar dan elemen penting
+          dalam pengaturan hidrologi wilayah tropis, termasuk di Klaster 2 Koridor Ekosistem
+          RIMBA (Kabupaten Tanjung Jabung Timur dan Muaro Jambi). Fungsi ini sangat bergantung
+          pada kelembapan dan tinggi muka air tanah (TMA/groudwater table) gambut. Ketika gambut
+          dikeringkan melalui kanal dan drainase berlebihan, proses degradasi berlangsung cepat
+          dan dampaknya meluas: kebakaran berulang, subsidensi, hilangnya fungsi ekologis, dan
+          gangguan sosial-ekonomi masyarakat. :contentReference[oaicite:1]{index=1}
+        </p>
+
+        <h3>3.2 Pembasahan Kembali (Rewetting) dan Manfaatnya</h3>
+        <p>
+          Pembasahan kembali (rewetting) adalah upaya menjaga atau mengembalikan kondisi jenuh
+          air di lapisan gambut melalui pengaturan hidrologi (misal dengan sekat kanal, sumur bor,
+          dan pengendalian drainase). Rewetting tidak hanya diarahkan untuk mencegah kebakaran,
+          tetapi juga menekan subsidensi lahan serta mengurangi emisi karbon yang dihasilkan
+          oleh oksidasi gambut kering. Dengan demikian, pembasahan memiliki manfaat ekologis
+          dan sosial-ekonomi yang multidimensi. 
+        </p>
+
+        <h3>3.3 Pembasahan sebagai Mitigasi Kebakaran, Subsiden, dan Emisi</h3>
+        <ul>
+          <li><strong>Mitigasi kebakaran:</strong> ketika TMA turun &gt; 40 cm, gambut sangat mudah terbakar. Rewetting menjaga TMA tetap tinggi sehingga lapisan gambut lebih lembap dan tahan terhadap api, terbukti menurunkan jumlah hotspot dan melambatkan sebaran api pada musim kering.</li>
+          <li><strong>Mitigasi subsidensi:</strong> drainase menyebabkan penurunan permukaan gambut (subsiden). Dengan menjaga kondisi jenuh air, laju subsidensi dapat ditekan hingga &lt; 1 cm/tahun, penting untuk stabilitas lahan budidaya dan kawasan sekitar hutan. :contentReference[oaicite:3]{index=3}</li>
+          <li><strong>Mitigasi emisi karbon:</strong> gambut kering melepaskan CO₂ dalam jumlah besar. Rewetting dapat mengurangi emisi 50–80% dibanding lahan gambut kering dan direkomendasikan sebagai intervensi kunci oleh KLHK dan IPCC untuk lahan basah tropis. :contentReference[oaicite:4]{index=4}</li>
+        </ul>
+      </section>
+
+      <!-- 04 Peran KPH dan Koordinasi Multipihak -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">04</div>
+          <h2>Peran KPH dan Pentingnya Koordinasi Multipihak</h2>
+        </div>
+
+        <h3>4.1 KPH sebagai Pengelola Hidrologi di Tapak</h3>
+        <p>
+          Klaster 2 berada pada ekosistem gambut yang telah lama tertekan akibat pembangunan kanal,
+          pembukaan lahan, dan kebakaran berulang. KPH Eksisting memegang posisi strategis di tapak:
+          mengoordinasikan pembasahan dengan desa, kelompok peduli gambut (MPG/MPA), pemerintah
+          daerah, dan perusahaan konsesi. Fasilitasi KPH tidak hanya teknis, tetapi juga membangun
+          tata kelola hidrologi terpadu di tingkat lanskap. 
+        </p>
+
+        <h3>4.2 Mengapa Harus Multipihak?</h3>
+        <p>
+          Gambut adalah satu kesatuan hidrologi: tindakan pada satu kanal bisa memengaruhi
+          TMA di area lain. Karena itu, pembasahan tidak bisa dilakukan satu aktor saja.
+        </p>
+        <ul>
+          <li><strong>KPH:</strong> mengelola hidrologi dan pengawasan di kawasan hutan.</li>
+          <li><strong>Pemerintah desa:</strong> mengatur dan menggerakkan masyarakat di tingkat desa.</li>
+          <li><strong>MPG/MPA:</strong> melakukan patroli, pemeliharaan kanal kecil, dan pembasahan lapangan.</li>
+          <li><strong>Perusahaan konsesi:</strong> mengoperasikan kanal primer dan infrastruktur besar yang sangat menentukan TMA.</li>
+          <li><strong>OPD (DLH, BPBD, dll.):</strong> menyusun kebijakan, regulasi, dan pendanaan pendukung. </li>
+        </ul>
+        <p>
+          Tanpa koordinasi, pembasahan berjalan parsial, bertumpu pada proyek, dan sulit
+          berkelanjutan. Koordinasi multipihak menjadi fondasi untuk efektivitas teknis,
+          akuntabilitas, dan sinergi program. :contentReference[oaicite:7]{index=7}
+        </p>
+      </section>
+
+      <!-- 05 Keterkaitan dengan Program RIMBA -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">05</div>
+          <h2>Keterkaitan dengan Program RIMBA</h2>
+        </div>
+        <p>
+          Program RIMBA menekankan pengelolaan bentang alam berkelanjutan, perlindungan ekosistem
+          kunci, dan penguatan kelembagaan lokal. Kegiatan pembasahan gambut Klaster 2 mendukung:
+        </p>
+        <ul>
+          <li>Pemulihan fungsi ekosistem gambut sebagai penyimpan air, penyangga karbon, dan habitat biodiversitas.</li>
+          <li>Peningkatan ketahanan lingkungan dan sosial-ekonomi masyarakat di koridor RIMBA.</li>
+          <li>Pemberdayaan masyarakat dan kelembagaan lokal melalui pelibatan MPG, perangkat desa, dan warga dalam pemantauan TMA, pemeliharaan sekat kanal, dan patroli hidrologi.</li>
+          <li>Pembangunan basis data hidrologi, IPG, risiko kebakaran, dan peran multipihak sebagai dasar perencanaan jangka panjang. </li>
+        </ul>
+      </section>
+
+      <!-- 06 Tujuan & Ruang Lingkup Kegiatan -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">06</div>
+          <h2>Tujuan dan Ruang Lingkup Kegiatan</h2>
+        </div>
+
+        <h3>6.1 Tujuan Kegiatan</h3>
+        <p>
+          Secara umum, kegiatan ini bertujuan menghasilkan data, informasi, dan mekanisme koordinasi
+          agar pembasahan gambut di Klaster 2 berlangsung efektif, terukur, dan berkelanjutan melalui
+          sinergi KPH, desa, dan pemangku kepentingan lain. 
+        </p>
+        <p class="pill-tag">Tujuan khusus (disederhanakan):</p>
+        <ul>
+          <li>Mengidentifikasi dan memetakan kondisi hidrologi gambut, termasuk sebaran kanal, sekat kanal, sumur bor, pintu air, dan infrastruktur pembasahan lain.</li>
+          <li>Menilai fungsi IPG eksisting dan kebutuhan rehabilitasi atau pembangunan baru.</li>
+          <li>Mendokumentasikan peran multipihak (KPH, desa, MPG/MPA, perusahaan, OPD) dalam pembasahan gambut.</li>
+          <li>Memetakan mekanisme koordinasi dan pembagian tugas teknis antar pihak.</li>
+          <li>Menentukan lokasi prioritas pembasahan berdasarkan risiko hidrologi, riwayat kebakaran, kedalaman gambut, dan konteks sosial-ekonomi.</li>
+          <li>Menyusun rekomendasi teknis (sekat kanal, sumur bor, TP-TMAT, pembersihan kanal, monitoring TMA).</li>
+          <li>Memperkuat peran KPH sebagai koordinator pengelolaan hidrologi gambut di tingkat tapak.</li>
+        </ul>
+
+        <h3>6.2 Ruang Lingkup Wilayah</h3>
+        <p>
+          Wilayah kajian berada di KHG Sungai Batanghari–Sungai Kumpeh, difokuskan pada empat desa
+          prioritas: Pandan Makmur, Pandan Sejahtera, Rantau Panjang, dan Seponjen, dengan total luas
+          ±22.562 ha. Desa-desa ini sangat bergantung pada sistem hidrologi gambut dan memiliki riwayat
+          kekeringan, subsidensi, serta kebakaran. 
+        </p>
+        <p>
+          Intervensi pembasahan difokuskan pada area di luar kawasan hutan (APL), terutama pada
+          gambut sedang–sangat dalam, jaringan kanal padat, dan zona dengan penurunan TMA signifikan.
+        </p>
+
+        <h3>6.3 Ruang Lingkup Kegiatan</h3>
+        <ul>
+          <li>Inventarisasi dan pemetaan IPG (sekat kanal, sumur bor, stasiun hujan, TP-TMAT) serta kanal.</li>
+          <li>Pengumpulan data hidrologi dan TMA dari berbagai sumber (Sipalaga, data satelit, dll.).</li>
+          <li>Identifikasi dan pelibatan multipihak melalui FGD dan wawancara.</li>
+          <li>Penyusunan zona prioritas pembasahan berdasarkan ketebalan gambut, kanal, pola aliran air, risiko subsidensi, kebutuhan masyarakat, dan batas KHG/desa. </li>
+        </ul>
+      </section>
+
+      <!-- 07 Metodologi Pelaksanaan -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">07</div>
+          <h2>Metodologi Pelaksanaan</h2>
+        </div>
+
+        <h3>7.1 Inventarisasi Infrastruktur Pembasahan</h3>
+        <p>
+          Inventarisasi IPG dilakukan dengan kombinasi: data sekunder, wawancara di tingkat tapak,
+          dan ground check selektif karena keterbatasan biaya dan luas wilayah. Infrastruktur yang
+          didata antara lain: sekat kanal (aktif/tidak aktif), kanal primer–sekunder–tersier,
+          sumur bor, embung, titik pembasahan, dan IPG milik perusahaan. :contentReference[oaicite:12]{index=12}
+        </p>
+
+        <h3>7.2 Data Hidrologi dan Indikator Prioritas</h3>
+        <p>
+          Data hidrologi dan TMA dikumpulkan dari instansi terkait dan model satelit untuk menilai
+          kondisi kelembapan gambut dan risiko kekeringan. Beberapa indikator kunci:
+        </p>
+        <ul>
+          <li><strong>Ketebalan gambut:</strong> gambut tebal lebih rentan mengering, subsidensi, dan emisi (skor prioritas tinggi).</li>
+          <li><strong>Kerapatan IPG/ha:</strong> sedikit IPG berarti kapasitas pembasahan rendah → prioritas tinggi.</li>
+          <li><strong>Kedalaman TMA rata-rata:</strong> TMA dangkal (&lt;10 cm) = basah, skor rendah; TMA dalam (&gt;80 cm) = kering, skor tinggi.</li>
+          <li><strong>Panjang kanal per ha:</strong> kanal padat mempercepat drainase → skor meningkat.</li>
+          <li><strong>Jarak dari HLG:</strong> lokasi dekat kubah gambut/HLG lebih kritis stabilitas hidrologinya.</li>
+          <li><strong>Jumlah hotspot historis per ha:</strong> menunjukkan riwayat kekeringan dan kerawanan kebakaran. :contentReference[oaicite:13]{index=13}</li>
+        </ul>
+
+        <h3>7.3 Identifikasi Pemangku Kepentingan, FGD, dan Wawancara</h3>
+        <p>
+          Pemangku kepentingan dipetakan lewat analisis kewenangan (KPH, desa, DLH, BPBD, BRGM),
+          aktivitas lapangan (MPG/MPA, kelompok tani, tokoh masyarakat), dan peran perusahaan
+          pemilik kanal besar. FGD mempertemukan KPH, desa, MPG/MPA, dan pihak lain untuk
+          mengidentifikasi masalah hidrologi dan kebutuhan pembasahan bersama-sama. Wawancara
+          terstruktur digunakan untuk menggali detail teknis dan kendala per pihak. 
+        </p>
+
+        <h3>7.4 Analisis Prioritas Spasial</h3>
+        <p>
+          Analisis prioritas dilakukan dengan membentuk satuan lahan homogen dari overlay ketebalan
+          gambut dan jarak HLG, kemudian menghitung parameter hidrologi (IPG, TMA, kanal, hotspot)
+          per satuan. Semua variabel dikonversi menjadi skor, dijumlahkan menjadi skor total, lalu
+          diklasifikasi menjadi prioritas sangat tinggi, tinggi, sedang, dan rendah. Outputnya
+          berupa peta zonasi prioritas pembasahan gambut di APL. 
+        </p>
+      </section>
+
+      <!-- 08 Hasil: IPG & Peta -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">08</div>
+          <h2>Hasil: IPG dan Peta Hidrologi</h2>
+        </div>
+
+        <h3>8.1 Kondisi IPG di Empat Desa</h3>
+        <p>
+          Inventarisasi menunjukkan total 80 unit IPG di empat desa, tetapi distribusinya tidak
+          merata:
+        </p>
+        <ul>
+          <li><strong>Pandan Sejahtera:</strong> 64 IPG (49 sekat kanal, 15 sumur bor) – desa dengan intervensi pembasahan terbanyak, namun fungsi tiap IPG perlu verifikasi lapangan.</li>
+          <li><strong>Pandan Makmur:</strong> 7 IPG (semua sekat kanal) – intervensi terbatas, belum ada sumur bor atau stasiun hujan.</li>
+          <li><strong>Seponjen:</strong> 9 IPG (6 sekat kanal, 1 stasiun hujan, 2 TP-TMAT) – ada upaya penguatan hidrologi, tapi cakupannya masih sempit.</li>
+          <li><strong>Rantau Panjang:</strong> 0 IPG – belum ada infrastruktur pembasahan, padahal secara hidrologis terhubung dengan desa lain dan rentan kekeringan. </li>
+        </ul>
+        <p>
+          Kondisi IPG ini menunjukkan bahwa pembasahan sudah dimulai, tetapi distribusinya belum
+          adil dan fungsinya banyak dipengaruhi pendangkalan kanal, kebocoran, dan perubahan
+          tata guna lahan. Data ini menjadi dasar menyusun kebutuhan tambahan pembasahan.
+        </p>
+
+        <div class="image-block">
+          <figure>
+            <img src="gambar-6-1-ipg-pandan.png" alt="Peta IPG Pandan Sejahtera dan Pandan Makmur">
+            <figcaption>Gambar 6.1 – Peta sebaran IPG di Desa Pandan Sejahtera dan Pandan Makmur</figcaption>
+          </figure>
+        </div>
+
+        <div class="image-block">
+          <figure>
+            <img src="gambar-6-2-ipg-rantau-seponjen.png" alt="Peta IPG Rantau Panjang dan Seponjen">
+            <figcaption>Gambar 6.2 – Peta sebaran IPG di Desa Rantau Panjang dan Seponjen</figcaption>
+          </figure>
+        </div>
+
+        <h3>8.2 Peta Ketebalan Gambut, Hotspot, dan Jaringan Kanal</h3>
+        <p>
+          Peta-peta IPG juga dilengkapi informasi ketebalan gambut (usaha melihat variasi
+          dari gambut sedang hingga sangat dalam), sebaran hotspot historis sebagai
+          indikator kerawanan kebakaran, dan jaringan kanal primer–sekunder–tersier.
+          Kombinasi tiga elemen ini memberi gambaran komprehensif tentang kondisi hidrologi
+          dan kebutuhan pembasahan di tiap desa. 
+        </p>
+      </section>
+
+      <!-- 09 Lokasi Prioritas Pembasahan -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">09</div>
+          <h2>Lokasi Prioritas Pembasahan Kembali</h2>
+        </div>
+
+        <div class="image-block">
+          <figure>
+            <img src="gambar-6-3-prioritas-pandan.png" alt="Area prioritas Pandan Sejahtera dan Pandan Makmur">
+            <figcaption>Gambar 6.3 – Area prioritas pembasahan di Pandan Sejahtera dan Pandan Makmur</figcaption>
+          </figure>
+        </div>
+
+        <div class="image-block">
+          <figure>
+            <img src="gambar-6-4-prioritas-rantau-seponjen.png" alt="Area prioritas Rantau Panjang dan Seponjen">
+            <figcaption>Gambar 6.4 – Area prioritas pembasahan di Rantau Panjang dan Seponjen</figcaption>
+          </figure>
+        </div>
+
+        <h3>9.1 Pola Umum Prioritas</h3>
+        <p>
+          Secara umum, prioritas pembasahan sangat tinggi terkonsentrasi pada:
+        </p>
+        <ul>
+          <li>Gambut sedang hingga sangat dalam (±300–500 cm).</li>
+          <li>Blok dengan kepadatan kanal menengah–tinggi.</li>
+          <li>Area dengan sedikit atau tanpa IPG.</li>
+          <li>Lokasi dengan riwayat hotspot berulang hampir tiap tahun.</li>
+          <li>Area dekat atau terhubung dengan HLG (Hidrologis Lanskap Gambut). </li>
+        </ul>
+
+        <h3>9.2 Pandan Sejahtera dan Pandan Makmur</h3>
+        <p>
+          Di Pandan Sejahtera dan Pandan Makmur, zona prioritas sangat tinggi terutama berada
+          di bagian barat–barat laut Pandan Sejahtera dan sebagian utara Pandan Makmur,
+          ditandai gambut dalam, kanal rapat, dan riwayat hotspot sering. :contentReference[oaicite:19]{index=19}
+        </p>
+
+        <h3>9.3 Rantau Panjang dan Seponjen</h3>
+        <p>
+          Di Rantau Panjang, prioritas tinggi terkumpul di wilayah utara dan tengah yang
+          berdekatan dengan HLG Sungai Mendahara dan Sungai Batanghari, dengan gambut
+          300–500 cm, kanal padat, hotspot berulang, dan tanpa IPG – sangat rentan
+          penurunan TMA. Di Seponjen, prioritas sangat tinggi berada di tenggara dan selatan,
+          dengan gambut dalam, kanal tersier rapat, IPG terbatas, dan hotspot konsisten.
+          Area dengan prioritas rendah–sedang cenderung berada di bagian timur yang
+          gambutnya lebih dangkal. 
+        </p>
+        <p>
+          Peta prioritas ini menjadi dasar spasial bagi pembangunan sekat kanal,
+          rehabilitasi IPG, dan penguatan pemantauan hidrologi di luar kawasan hutan.
+        </p>
+      </section>
+
+      <!-- 10 Pemetaan Peran Multipihak & RACI -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">10</div>
+          <h2>Pemetaan Peran Multipihak (RACI)</h2>
+        </div>
+
+        <h3>10.1 Kondisi Aktual: Kekosongan “Nakhoda”</h3>
+        <p>
+          Setelah BRGM dibubarkan, pembasahan gambut mengalami kekosongan koordinasi.
+          Belum jelas lembaga yang menjadi penanggung jawab utama, sehingga fungsi koordinatif
+          seperti perencanaan, pendampingan desa, monitoring TMA, dan pembangunan sekat kanal
+          tidak lagi berjalan di bawah satu institusi. 
+        </p>
+        <p>
+          Hasil analisis kelembagaan menunjukkan:
+        </p>
+        <ul>
+          <li>KPH merasa mandatnya terutama pada pengelolaan blok hutan, bukan pembasahan di APL.</li>
+          <li>DLH provinsi/kabupaten belum menempatkan diri sebagai penanggung jawab pembasahan di luar kawasan hutan.</li>
+          <li>Perusahaan mengelola kanal primer tanpa koordinasi memadai dengan desa dan pemerintah.</li>
+          <li>Desa dan MPG/MPA melakukan kegiatan pembasahan dan pemeliharaan kanal kecil secara sporadis dengan kapasitas terbatas.</li>
+        </ul>
+        <p>
+          Matriks RACI kondisi aktual menunjukkan tidak ada aktor yang jelas berperan sebagai
+          “T – Penanggung jawab (Accountable)”, sementara desa, MPG/MPA, dan perusahaan menjadi
+          pelaksana tanpa mandat kuat. 
+        </p>
+
+        <h3>10.2 Kondisi Ideal yang Diharapkan</h3>
+        <p>
+          Matriks RACI ideal mengusulkan:
+        </p>
+        <ul>
+          <li><strong>Kementerian Lingkungan Hidup:</strong> koordinator nasional (T) untuk koordinasi teknis pembasahan.</li>
+          <li><strong>KPH:</strong> pelaksana utama (P) dan penanggung jawab di kawasan hutan.</li>
+          <li><strong>DLH Prov/Kab:</strong> koordinator pembasahan di APL dan desa.</li>
+          <li><strong>Perusahaan:</strong> penanggung jawab dan pelaksana kanal primer di dalam konsesi.</li>
+          <li><strong>Desa & MPG/MPA:</strong> pelaksana harian di desa (perawatan kanal, monitoring TMA, pembasahan lokal).</li>
+        </ul>
+        <p>
+          Penegasan peran ini penting agar pembasahan berjalan terarah, terukur, dan berkelanjutan.
+        </p>
+      </section>
+
+      <!-- 11 Rencana Aksi Infrastruktur Pembasahan -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">11</div>
+          <h2>Rencana Aksi Pembangunan Infrastruktur Pembasahan</h2>
+        </div>
+
+        <h3>11.1 Jenis Infrastruktur Utama</h3>
+        <ul>
+          <li><strong>Sekat kanal (canal blocking):</strong> menahan aliran air, menaikkan TMA, dan memperlambat drainase; material dapat berupa kayu ulin, tanah mineral, kayu lokal, atau geobag, disesuaikan dengan lebar dan kedalaman kanal.</li>
+          <li><strong>Sumur bor pembasahan (deep wells):</strong> titik sumber air untuk pembasahan darurat dan pemadaman awal api.</li>
+          <li><strong>TP-TMAT manual:</strong> titik pemantauan TMA untuk evaluasi keberhasilan pembasahan.</li>
+          <li><strong>Stasiun curah hujan:</strong> memantau ketersediaan air untuk pembasahan gambut. </li>
+        </ul>
+
+        <div class="two-cols">
+          <div>
+            <h3>11.2 Rencana Aksi per Desa (Ringkas)</h3>
+            <p><strong>A. Pandan Sejahtera</strong></p>
+            <ul>
+              <li>Pembangunan ±10–15 sekat kanal baru di kanal primer–sekunder kunci.</li>
+              <li>Rehabilitasi sekat kanal lama yang rusak atau bocor.</li>
+              <li>Penambahan ±5 sumur bor di zona prioritas sangat tinggi.</li>
+              <li>Pemasangan ±3 titik TP-TMAT baru untuk memperkuat monitoring hidrologi.</li>
+            </ul>
+
+            <p><strong>B. Pandan Makmur</strong></p>
+            <ul>
+              <li>Pembangunan ±8–12 sekat kanal baru untuk meningkatkan retensi air.</li>
+              <li>Pembangunan ±3 sumur bor di blok dengan riwayat hotspot.</li>
+              <li>Pembangunan satu embung kecil pada cekungan alami.</li>
+              <li>Penambahan titik pantau TMA di jalur kanal utama. :contentReference[oaicite:24]{index=24}</li>
+            </ul>
+          </div>
+
+          <div>
+            <p><strong>C. Rantau Panjang</strong></p>
+            <ul>
+              <li>Pembangunan ±15–20 sekat kanal di jaringan drainase utama (karena belum ada IPG).</li>
+              <li>Pembangunan ±5 sumur bor di dekat permukiman dan lahan budidaya.</li>
+              <li>Pembangunan satu embung sederhana untuk tampungan air.</li>
+              <li>Pemasangan ±5 titik pantau TMA sebagai dasar sistem monitoring.</li>
+            </ul>
+
+            <p><strong>D. Seponjen</strong></p>
+            <ul>
+              <li>Pembangunan ±6–10 sekat kanal baru di kanal tersier yang mengeringkan blok prioritas.</li>
+              <li>Rehabilitasi ±2 sekat kanal di bagian selatan.</li>
+              <li>Pembangunan ±2 sumur bor di area dengan TMA sangat dalam.</li>
+              <li>Pemasangan ±2 TP-TMAT tambahan untuk memperkuat pemantauan. :contentReference[oaicite:25]{index=25}</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>11.3 Strategi Pelaksanaan dan Koordinasi</h3>
+        <ul>
+          <li>Penentuan lokasi final melalui ground check bersama desa, MPG/MPA, KPH, dan bila perlu perusahaan.</li>
+          <li>Pembangunan IPG dengan skema padat karya desa/kelompok masyarakat peduli gambut.</li>
+          <li>Koordinasi intensif antara KPH dan DLH untuk memastikan konstruksi dan pengoperasian IPG tidak saling bertentangan.</li>
+          <li>Pemeliharaan rutin kanal dan sekat kanal sebagai bagian program kerja desa/MPG/MPA.</li>
+        </ul>
+      </section>
+
+      <!-- 12 Penutup -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">12</div>
+          <h2>Penutup</h2>
+        </div>
+        <p>
+          Pembasahan kembali gambut di Klaster 2 merupakan komponen kunci dalam pemulihan
+          ekosistem gambut dan pencapaian tujuan Program RIMBA. Intervensi ini tidak hanya
+          mengurangi kebakaran, subsidensi, dan emisi karbon, tetapi juga memperkuat tata
+          kelola hidrologi dan ketahanan masyarakat di sekitar gambut. 
+        </p>
+        <p>
+          Ke depan, keberhasilan pembasahan sangat bergantung pada kejelasan peran lembaga,
+          koordinasi multipihak, dan konsistensi pemeliharaan IPG di tingkat tapak. Bahan
+          ajar ini diharapkan menjadi dasar bagi mahasiswa untuk memahami dan merancang
+          intervensi rewetting yang berbasis data, peta, dan kolaborasi.
+        </p>
+      </section>
+
+      <!-- 13 Evaluasi dan Tugas -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-pill">13</div>
+          <h2>Evaluasi dan Tugas</h2>
+        </div>
+
+        <div class="eval-grid">
+          <div class="eval-card">
+            <h3>A. Pertanyaan Evaluasi</h3>
+            <ul>
+              <li>Jelaskan secara singkat mengapa pembasahan kembali gambut menjadi strategi kunci dalam mitigasi kebakaran, subsidensi, dan emisi karbon.</li>
+              <li>Sebutkan dan jelaskan minimal empat indikator yang digunakan untuk menentukan prioritas lokasi pembasahan di Klaster 2.</li>
+              <li>Bagaimana peran KPH Eksisting dalam pembasahan gambut dan apa kendala kelembagaan yang dihadapi saat ini?</li>
+              <li>Mengapa Desa Rantau Panjang dikategorikan sebagai prioritas tinggi untuk pembangunan IPG baru?</li>
+              <li>Apa perbedaan kondisi aktual dan kondisi ideal peran multipihak menurut matriks RACI?</li>
+              <li>Jelaskan bagaimana peta IPG, ketebalan gambut, hotspot, dan jaringan kanal saling melengkapi dalam perencanaan pembasahan.</li>
+              <li>Bagaimana kegiatan pembasahan gambut di Klaster 2 mendukung pencapaian tujuan Program RIMBA?</li>
+            </ul>
+          </div>
+
+          <div class="eval-card">
+            <h3>B. Tugas</h3>
+            <p><strong>1. Tugas Individu – Analisis Desa (2–3 halaman)</strong></p>
+            <p>Pilih salah satu desa (Pandan Sejahtera, Pandan Makmur, Rantau Panjang, atau Seponjen), lalu:</p>
+            <ul>
+              <li>Uraikan kondisi hidrologi dan IPG di desa tersebut (berdasarkan narasi dan peta dalam bahan ajar).</li>
+              <li>Identifikasi faktor utama yang menyebabkan desa tersebut rentan kekeringan dan kebakaran.</li>
+              <li>Usulkan minimal tiga tindakan pembasahan prioritas yang realistis beserta alasannya.</li>
+            </ul>
+
+            <p><strong>2. Tugas Kelompok – Rencana Aksi Pembasahan</strong></p>
+            <p>Secara berkelompok, susun rencana aksi pembasahan untuk satu blok prioritas (misalnya blok prioritas sangat tinggi di Rantau Panjang), meliputi:</p>
+            <ul>
+              <li>Tujuan spesifik (misalnya target TMA, pengurangan hotspot, atau pengurangan emisi).</li>
+              <li>Jenis IPG yang akan dibangun/rehabilitasi beserta jumlah dan lokasi indikatif.</li>
+              <li>Pemetaan peran aktor berdasarkan skema RACI (siapa T, P, D, Dk).</li>
+              <li>Indikator keberhasilan teknis (TMA, jumlah hotspot) dan sosial (partisipasi masyarakat, keberlanjutan pemeliharaan).</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="footer-note">
+          Catatan: Dosen dapat menyesuaikan tingkat kedalaman pertanyaan dan tugas
+          sesuai jenjang mata kuliah serta menambahkan latihan interpretasi peta
+          menggunakan data aktual jika tersedia.
+        </p>
+      </section>
+
+    </article>
+  </main>
+</body>
+</html>
