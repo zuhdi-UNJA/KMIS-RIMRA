@@ -1,124 +1,837 @@
 <!doctype html>
 <html lang="id">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Bahan Ajar – Perubahan Perilaku & Pemadaman Kebakaran</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Perubahan Perilaku dalam Pencegahan dan Pemadaman Kebakaran Gambut</title>
 
-<style>
-  :root{
-      --bg:#fff9f4;                  /* latar belakang nuansa hangat */
-      --card:#ffffff;
-      --accent:#c23815;              /* merah bata */
-      --accent2:#ff7b30;             /* oranye api */
-      --muted:#4b5563;
-      --text:#1f2937;
-      --shadow:0 2px 8px rgba(0,0,0,0.12);
-      font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-  }
+  <style>
+    :root {
+      --bg-dark: #1b0b0b;
+      --bg-mid: #3b0a0a;
+      --bg-card: #fff7ec;
+      --accent: #ff6a00;
+      --accent-soft: #ffb347;
+      --accent-dark: #b83211;
+      --text-main: #1a202c;
+      --text-muted: #4a5568;
+    }
 
-  body{
-      margin:0;background:var(--bg);color:var(--text);line-height:1.65;
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  /* Header bergaya gradasi api */
-  header{
-      background:linear-gradient(90deg, #b32b0f, #ff7b30, #ffb347);
-      color:white;
-      padding:22px 26px;
-      box-shadow:var(--shadow);
-  }
-  header h1{margin:0;font-size:24px;font-weight:600}
-  header p{margin:6px 0 0;font-size:13px;color:#ffeede}
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #5b1b1b 0, var(--bg-dark) 40%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
 
-  main{
-      max-width:960px;
-      margin:28px auto 40px;
-      padding:0 16px;
-  }
+    main.container {
+      max-width: 1080px;
+      margin: 1.5rem auto;
+      padding: 1.5rem;
+    }
 
-  h2{
-      color:var(--accent);
-      margin-top:32px;
-      border-left:6px solid var(--accent2);
-      padding-left:10px;
-  }
-  h3{
-      color:#8b2c0a;
-      margin-top:20px;
-      font-weight:600;
-  }
+    .card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(255,247,236,0.98));
+      border-radius: 18px;
+      padding: 2rem 1.8rem;
+      box-shadow:
+        0 18px 40px rgba(0,0,0,0.45),
+        0 0 0 1px rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.6);
+      backdrop-filter: blur(6px);
+    }
 
-  .box{
-      background:var(--card);
-      padding:16px 20px;
-      margin:20px 0;
-      border-radius:10px;
-      border-left:6px solid var(--accent);
-      box-shadow:var(--shadow);
-  }
+    header.hero {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-bottom: 1.5rem;
+    }
 
-  .meta{font-size:14px;color:var(--muted)}
+    header.hero::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 140px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #f97316, #fed7aa, #f97316);
+      box-shadow: 0 0 16px rgba(248,113,113,0.9);
+    }
 
-  ul,ol{padding-left:22px}
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: #f97316;
+      font-weight: 700;
+      background: rgba(248,250,252,0.8);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(248,113,113,0.4);
+      margin-bottom: 0.7rem;
+    }
 
-  /* Gambar */
-  .img-center{
-      text-align:center;
-      margin:16px 0;
-  }
-  .img-center img{
-      max-width:100%;
-      border-radius:10px;
-      box-shadow:var(--shadow);
-  }
+    .eyebrow-flame {
+      width: 10px;
+      height: 14px;
+      border-radius: 999px 999px 999px 0;
+      background: radial-gradient(circle at 30% 0%, #fee2e2 0, #f97316 40%, #9f1239 100%);
+      box-shadow: 0 0 10px rgba(248,113,113,0.8);
+    }
 
-  footer{
-      margin-top:40px;
-      padding:16px;
-      text-align:center;
-      font-size:13px;
-      color:#7b7b7b;
-      background:#fff2e6;
-      border-top:2px solid #ffb070;
-  }
+    h1 {
+      margin: 0.2rem 0 0.6rem;
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      line-height: 1.25;
+      color: #7f1d1d;
+      text-shadow: 0 0 18px rgba(248,113,113,0.4);
+    }
 
-  /* Badge tahapan perilaku */
-  .badge{
-      background:#ffe1cc;
-      color:#8b2c0a;
-      font-size:12px;
-      padding:3px 8px;
-      border-radius:999px;
-      margin-left:4px;
-  }
-</style>
+    .subtitle {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .pengajar {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      color: #9b2c2c;
+      font-weight: 600;
+    }
+
+    /* TOC */
+    nav.toc {
+      margin: 1.8rem 0 2rem;
+      padding: 1rem 1.2rem;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #fff7ed, #fffbeb);
+      border: 1px solid rgba(251,146,60,0.6);
+    }
+
+    nav.toc h2 {
+      margin: 0 0 0.6rem;
+      font-size: 1rem;
+      color: #9a3412;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    nav.toc h2 span.icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      background: radial-gradient(circle at 30% 0%, #fed7aa 0, #ea580c 60%, #7c2d12 100%);
+      box-shadow: 0 0 8px rgba(248,113,113,0.8);
+    }
+
+    nav.toc ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      columns: 2;
+      column-gap: 2.5rem;
+      font-size: 0.9rem;
+    }
+
+    nav.toc li {
+      margin: 0.15rem 0;
+      break-inside: avoid;
+    }
+
+    nav.toc a {
+      text-decoration: none;
+      color: #b45309;
+    }
+
+    nav.toc a:hover {
+      text-decoration: underline;
+      color: #c2410c;
+    }
+
+    /* Sections */
+    section {
+      margin: 2rem 0;
+      padding-top: 0.8rem;
+      border-top: 3px solid rgba(248,113,113,0.3);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 1.25rem;
+      color: #b91c1c;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h2 .pill {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9a3412;
+      background: #ffedd5;
+      padding: 0.08rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(248,113,113,0.5);
+    }
+
+    h3 {
+      margin-top: 1.2rem;
+      font-size: 1.05rem;
+      color: #9a3412;
+    }
+
+    p {
+      margin: 0.4rem 0;
+      font-size: 0.95rem;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    ul, ol {
+      margin: 0.4rem 0 0.8rem 1.1rem;
+      font-size: 0.95rem;
+    }
+
+    li {
+      margin: 0.18rem 0;
+    }
+
+    .callout {
+      border-radius: 14px;
+      padding: 0.75rem 1rem;
+      background: linear-gradient(90deg, rgba(254,243,199,0.95), rgba(253,230,138,0.95));
+      border: 1px solid rgba(234,179,8,0.6);
+      font-size: 0.9rem;
+      color: #713f12;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9a3412;
+      background: #fffbeb;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(245,158,11,0.7);
+      margin-bottom: 0.3rem;
+    }
+
+    .evaluasi-list {
+      background: #fff7ed;
+      border-radius: 14px;
+      border: 1px dashed rgba(248,113,113,0.7);
+      padding: 0.9rem 1rem 1rem;
+    }
+
+    .evaluasi-list li {
+      margin: 0.3rem 0 0.6rem;
+    }
+
+    .jawaban-kosong {
+      margin-top: 0.2rem;
+      border-radius: 8px;
+      border: 1px dashed rgba(148,163,184,0.9);
+      padding: 0.5rem;
+      min-height: 2.2rem;
+      font-size: 0.85rem;
+      color: #64748b;
+      font-style: italic;
+    }
+
+    .footer-note {
+      margin-top: 1.4rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(226,232,240,0.9);
+      padding-top: 0.7rem;
+    }
+
+    @media (max-width: 720px) {
+      main.container {
+        margin: 0.8rem auto 1.4rem;
+        padding: 0.8rem;
+      }
+
+      .card {
+        padding: 1.4rem 1rem;
+      }
+
+      nav.toc ul {
+        columns: 1;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <main class="container">
+    <article class="card">
+      <header class="hero">
+        <div class="eyebrow">
+          <span class="eyebrow-flame"></span>
+          Modul Bahan Ajar – Kebakaran Gambut
+        </div>
+        <h1>Perubahan Perilaku dalam Pencegahan dan Pemadaman Kebakaran Gambut</h1>
+        <p class="subtitle">
+          Fokus pada penguatan peran Masyarakat Peduli Api (MPA) dan kolaborasi multipihak di desa-desa gambut.
+        </p>
+        <p class="pengajar">
+          Pengajar: Hafizah Nahlunnisa, S.Hut., M.Si.
+        </p>
+      </header>
 
-<header>
-  <h1>PERUBAHAN PERILAKU MASYARAKAT, PEMANGKU KEPENTINGAN, SWASTA, DAN PEMERINTAH TERKAIT KAPASITAS PEMADAMAN KEBAKARAN – KERJASAMA DENGAN KPH</h1>
-  <p>Modul pembelajaran dengan nuansa kebakaran – fokus pada pencegahan dan perubahan perilaku</p>
-</header>
+      <!-- Daftar Isi -->
+      <nav class="toc">
+        <h2><span class="icon"></span>Daftar Isi</h2>
+        <ul>
+          <li><a href="#ringkasan">Ringkasan</a></li>
+          <li><a href="#tujuan">Tujuan Pembelajaran</a></li>
+          <li><a href="#bab1">Bab 1. Pendahuluan</a></li>
+          <li><a href="#bab2">Bab 2. Konsep Dasar Kebakaran Gambut</a></li>
+          <li><a href="#bab3">Bab 3. Peran Multipihak</a></li>
+          <li><a href="#bab4">Bab 4. Masyarakat Peduli Api (MPA)</a></li>
+          <li><a href="#bab5">Bab 5. Analisis Perubahan Perilaku</a></li>
+          <li><a href="#bab6">Bab 6. Studi Kasus di Empat Desa</a></li>
+          <li><a href="#bab7">Bab 7. Rencana Aksi</a></li>
+          <li><a href="#bab8">Bab 8. Evaluasi Pembelajaran</a></li>
+          <li><a href="#bab9">Bab 9. Penutup</a></li>
+        </ul>
+      </nav>
 
-<main>
+      <!-- Ringkasan -->
+      <section id="ringkasan">
+        <h2><span class="pill">Ringkasan</span></h2>
+        <p>
+          Kebakaran gambut merupakan salah satu ancaman terbesar bagi lingkungan dan kesehatan masyarakat di Indonesia.
+          Lahan gambut yang mengering sangat mudah terbakar, api dapat merambat di bawah permukaan tanah dan sulit
+          dipadamkan. Dampaknya tidak hanya berupa kabut asap dan gangguan kesehatan, tetapi juga kerusakan ekosistem,
+          kerugian ekonomi, dan peningkatan emisi karbon yang memperburuk perubahan iklim.
+        </p>
+        <p>
+          Upaya pencegahan kebakaran gambut tidak bisa diserahkan hanya kepada pemerintah. Perusahaan pemegang izin,
+          pemerintah daerah, dan terutama masyarakat yang tinggal di sekitar lahan gambut harus terlibat aktif.
+          Masyarakat Peduli Api (MPA) menjadi garda terdepan di desa untuk melakukan patroli, deteksi dini, edukasi,
+          serta pemadaman awal ketika api masih kecil.
+        </p>
+        <p>
+          Namun MPA menghadapi tantangan seperti kapasitas teknis yang belum merata, peralatan minim, dan dukungan
+          kelembagaan yang lemah. Melalui pendekatan perubahan perilaku yang menekankan peningkatan pengetahuan,
+          motivasi, dan partisipasi, upaya pencegahan dapat dijalankan secara lebih efektif dan berkelanjutan.
+          Studi kasus di Desa Pandan Sejahtera, Pandan Makmur, Seponjen, dan Rantau Panjang menunjukkan bahwa kolaborasi
+          multipihak dan kesiapsiagaan desa menjadi kunci dalam menghadapi musim kemarau dan mengurangi risiko kebakaran.
+        </p>
+      </section>
 
-<!-- Informasi Pengajar -->
-<div class="box">
-  <strong>Pengajar:</strong> Hafizah Nahlunnisa, S.Hut., M.Si.
-  <div class="meta" style="margin-top:4px">
-    Modul Pengendalian Kebakaran & Perubahan Perilaku – Universitas Jambi
-  </div>
-</div>
+      <!-- Tujuan Pembelajaran -->
+      <section id="tujuan">
+        <h2><span class="pill">Tujuan Pembelajaran</span></h2>
+        <div class="callout">
+          <p class="badge">Setelah mengikuti modul ini, peserta diharapkan mampu:</p>
+          <ul>
+            <li>Menjelaskan penyebab dan dampak kebakaran gambut.</li>
+            <li>Memahami peran pemerintah, swasta, dan masyarakat dalam pencegahan dan pemadaman.</li>
+            <li>Menjelaskan konsep dan peran Masyarakat Peduli Api (MPA).</li>
+            <li>Mengidentifikasi isu dan tantangan lapangan terkait pengendalian kebakaran gambut.</li>
+            <li>Menganalisis perubahan perilaku dalam pencegahan kebakaran.</li>
+            <li>Menyusun rencana aksi sederhana pencegahan dan pemadaman kebakaran di tingkat desa.</li>
+          </ul>
+        </div>
+      </section>
 
-<!-- Tujuan -->
-<h2>Tujuan Pembelajaran</h2>
-<div class="box">
-  <p>Setelah mengikuti pembelajaran ini, peserta diharapkan mampu:</p>
-  <ul>
-    <li>Memahami penyebab kebakaran gambut dan perubahan perilaku masyarakat.</li>
-    <li>Menganalisis peran pemerintah, KPH, masyarakat, dan swasta.</li>
-    <li>Mengidentifikasi hambatan perilaku dalam pencegahan kebakaran.</li>
-    <li>Menjelaskan tahapan perubahan perilaku pada masyarakat desa.</li>
-    <li>Menyusun strategi kolab
+      <!-- BAB 1 -->
+      <section id="bab1">
+        <h2><span class="pill">Bab 1</span> Pendahuluan</h2>
+        <p>
+          Kebakaran hutan dan lahan, khususnya pada ekosistem gambut, merupakan persoalan serius yang terus berulang di
+          Indonesia. Setiap musim kemarau, berbagai wilayah mengalami peningkatan titik panas (hotspot), kebakaran lahan,
+          serta kabut asap yang berdampak luas terhadap kesehatan, lingkungan, dan ekonomi masyarakat. Lahan gambut yang
+          kering sangat mudah terbakar dan dapat menyimpan api di bawah permukaan, sehingga proses pemadaman menjadi
+          lebih sulit dan memerlukan upaya terpadu.
+        </p>
+        <p>
+          Fenomena kebakaran gambut tidak dapat diselesaikan oleh pemerintah saja. Perubahan perilaku manusia
+          (misalnya kebiasaan membuka lahan dengan api), peningkatan pengetahuan, partisipasi masyarakat, serta
+          keterlibatan perusahaan pemegang lahan merupakan bagian penting dari upaya pencegahan kebakaran. Karena itu,
+          diperlukan pemahaman menyeluruh mengenai bagaimana perilaku masyarakat, pemerintah, dan sektor swasta saling
+          terhubung dalam mencegah dan memadamkan api sejak dini.
+        </p>
+        <p>
+          Bahan ajar ini membahas konsep dasar kebakaran gambut, peran multipihak, perilaku masyarakat, fungsi
+          Masyarakat Peduli Api (MPA), analisis perubahan perilaku, serta rencana aksi yang dapat diterapkan di tingkat
+          desa. Modul ini disusun agar mudah dipahami dan dapat digunakan dalam kelas, pelatihan, maupun kegiatan
+          penyadaran masyarakat.
+        </p>
+      </section>
+
+      <!-- BAB 2 -->
+      <section id="bab2">
+        <h2><span class="pill">Bab 2</span> Konsep Dasar Kebakaran Gambut</h2>
+
+        <h3>2.1 Apa itu Gambut?</h3>
+        <p>
+          Gambut adalah tanah yang terbentuk dari sisa-sisa bahan organik yang tidak terurai sempurna dan menumpuk
+          dalam jangka waktu sangat lama. Lapisan ini mampu menyimpan air dalam jumlah besar. Namun ketika terjadi
+          musim kemarau panjang atau drainase yang berlebihan, gambut dapat menjadi sangat kering dan mudah terbakar.
+        </p>
+        <p>
+          Saat terbakar, api di lahan gambut tidak hanya menjalar di permukaan tetapi juga di bawah permukaan tanah
+          (ground fire). Kondisi ini membuat kebakaran sulit dideteksi dan dipadamkan, karena api dapat berpindah
+          melalui lapisan gambut yang kering dan tiba-tiba muncul di tempat lain.
+
+        <h3>2.2 Penyebab Kebakaran Gambut</h3>
+        <p>
+          Sebagian besar kebakaran gambut dipicu oleh aktivitas manusia. Pembukaan lahan dengan cara membakar masih
+          menjadi penyebab utama karena dianggap murah dan praktis. Selain itu, kelalaian seperti membuang puntung
+          rokok sembarangan, membakar sampah, atau membuat api unggun tanpa pengawasan juga dapat memicu kebakaran.
+        </p>
+        <p>
+          Dari sisi biofisik, penurunan muka air tanah akibat kanal-kanal yang mengering, pembukaan drainase baru,
+          serta lemahnya infrastruktur pembasahan (sekat kanal, embung) turut menyebabkan gambut lebih mudah terbakar.
+          Kombinasi faktor manusia dan kondisi lingkungan inilah yang membuat kebakaran gambut berulang dari tahun ke
+          tahun.
+        </p>
+
+        <h3>2.3 Dampak Kebakaran Gambut</h3>
+        <p>
+          Dampak kebakaran gambut sangat luas. Kabut asap yang dihasilkan menyebabkan gangguan pernapasan, iritasi mata,
+          dan berbagai penyakit lain terutama pada kelompok rentan seperti anak-anak dan lansia. Asap juga mengganggu
+          aktivitas ekonomi, pendidikan, dan transportasi, bahkan dapat menghambat penerbangan.
+        </p>
+        <p>
+          Dari sisi lingkungan, kebakaran gambut melepaskan gas rumah kaca dalam jumlah besar, merusak keanekaragaman
+          hayati, dan mempercepat degradasi lahan. Kerusakan ini memerlukan waktu pemulihan yang sangat lama dan biaya
+          yang tidak sedikit.
+        </p>
+      </section>
+
+      <!-- BAB 3 -->
+      <section id="bab3">
+        <h2><span class="pill">Bab 3</span> Peran Multipihak dalam Pencegahan Kebakaran</h2>
+        <p>
+          Mengingat kompleksitas persoalan kebakaran gambut, penyelesaiannya harus dilakukan melalui kolaborasi berbagai
+          pihak. Pemerintah, perusahaan, dan masyarakat memiliki peran yang saling melengkapi dan tidak dapat bekerja
+          sendiri-sendiri.
+        </p>
+
+        <h3>3.1 Pemerintah</h3>
+        <p>
+          Pemerintah memegang peran kunci dalam regulasi, perencanaan, dan koordinasi penanggulangan kebakaran.
+          Kementerian Lingkungan Hidup dan Kehutanan (KLHK) melalui Manggala Agni bertugas melakukan pencegahan,
+          pemantauan, dan pemadaman kebakaran hutan dan lahan. Badan Penanggulangan Bencana Daerah (BPBD) dan dinas
+          terkait mendukung logistik, edukasi, serta penanganan darurat.
+        </p>
+        <p>
+          Di tingkat tapak, Kesatuan Pengelolaan Hutan (KPH) berperan memetakan kawasan rawan kebakaran, melakukan
+          pembinaan masyarakat, dan memfasilitasi kolaborasi antara desa, perusahaan, dan lembaga lain dalam
+          pengendalian kebakaran.
+        </p>
+
+        <h3>3.2 Swasta / Perusahaan Konsesi</h3>
+        <p>
+          Perusahaan pemegang konsesi (perkebunan, HTI, dsb.) memiliki tanggung jawab besar terhadap pengelolaan
+          lahan yang aman dari kebakaran. Mereka biasanya memiliki tim pemadam internal (fire brigade), membangun
+          menara pantau, melakukan patroli area konsesi, serta menyediakan peralatan pemadam.
+        </p>
+        <p>
+          Melalui program tanggung jawab sosial (CSR), perusahaan juga dapat memperkuat kapasitas masyarakat dengan
+          menyediakan alat pemadam sederhana, mendukung pembentukan MPA, memberi pelatihan, dan mendorong usaha
+          ekonomi produktif yang sejalan dengan prinsip pengelolaan lahan tanpa bakar.
+        </p>
+
+        <h3>3.3 Masyarakat (MPA dan Warga Umum)</h3>
+        <p>
+          Masyarakat adalah pihak yang paling dekat dengan lokasi kebakaran dan paling pertama merasakan dampaknya.
+          Masyarakat Peduli Api (MPA) menjadi ujung tombak dalam patroli, deteksi dini, pemadaman awal, dan edukasi
+          kepada warga. Respon cepat dari MPA sering kali menjadi penentu apakah api dapat dipadamkan saat masih kecil
+          atau berkembang menjadi kebakaran besar.
+        </p>
+        <p>
+          Di luar MPA, warga desa biasa juga memiliki peran penting, misalnya dengan tidak membakar lahan, ikut
+          melaporkan titik api, mengikuti sosialisasi, dan terlibat dalam kegiatan desa bebas api. Perubahan perilaku
+          di tingkat rumah tangga dan kelompok tani menjadi fondasi keberhasilan pencegahan kebakaran.
+        </p>
+      </section>
+
+      <!-- BAB 4 -->
+      <section id="bab4">
+        <h2><span class="pill">Bab 4</span> Masyarakat Peduli Api (MPA)</h2>
+
+        <h3>4.1 Pengertian dan Dasar Pembentukan</h3>
+        <p>
+          Masyarakat Peduli Api (MPA) adalah kelompok relawan yang dibentuk berdasarkan Peraturan Menteri
+          Lingkungan Hidup dan Kehutanan Nomor P.32/2016 tentang Pengendalian Kebakaran Hutan dan Lahan.
+          MPA berfungsi sebagai garda depan di tingkat desa dalam pencegahan dan pemadaman kebakaran hutan dan
+          lahan, terutama di wilayah-wilayah yang rawan karhutla.
+        </p>
+
+        <h3>4.2 Tugas Utama MPA</h3>
+        <p>
+          Tugas utama MPA meliputi pencegahan kebakaran melalui patroli rutin, sosialisasi kepada warga, dan
+          pengawasan terhadap aktivitas yang berpotensi memicu kebakaran (seperti pembakaran lahan dan sampah).
+          MPA juga bertanggung jawab melakukan pemadaman awal sebelum api membesar, sehingga kerusakan lingkungan
+          dapat diminimalkan.
+        </p>
+        <p>
+          Selain itu, MPA berperan sebagai penghubung informasi antara desa dengan pemerintah, KPH, dan perusahaan.
+          Ketika muncul indikasi asap atau titik api, MPA diharapkan segera melaporkan dan berkoordinasi agar bantuan
+          dapat datang tepat waktu.
+        </p>
+
+        <h3>4.3 Tantangan dan Hambatan MPA</h3>
+        <p>
+          Walaupun berperan besar, MPA sering menghadapi keterbatasan. Tidak adanya dana operasional yang tetap
+          membuat kegiatan patroli dan pemeliharaan peralatan sering terkendala. Peralatan keselamatan seperti sepatu
+          boot, helm, masker, dan baju pemadam seringkali belum lengkap atau sudah aus.
+        </p>
+        <p>
+          Dari sisi kelembagaan, MPA di banyak desa belum diakui secara formal sebagai lembaga desa melalui
+          Peraturan Desa (Perdes), sehingga sulit mengakses anggaran dari APBDes maupun program lain. Hal ini
+          mempengaruhi motivasi anggota dan kontinuitas kegiatan mereka.
+        </p>
+      </section>
+
+      <!-- BAB 5 -->
+      <section id="bab5">
+        <h2><span class="pill">Bab 5</span> Analisis Perubahan Perilaku dalam Pencegahan Kebakaran</h2>
+        <p>
+          Pencegahan kebakaran sangat dipengaruhi oleh perilaku manusia. Tiga komponen utama yang berperan dalam
+          perubahan perilaku adalah pengetahuan, motivasi, dan partisipasi. Ketiganya saling terkait dan menentukan
+          seberapa jauh masyarakat dan MPA terlibat aktif dalam pencegahan kebakaran.
+        </p>
+
+        <h3>5.1 Pengetahuan</h3>
+        <p>
+          Anggota MPA umumnya memiliki pengetahuan yang cukup baik mengenai penyebab kebakaran, dampaknya, serta
+          teknik dasar pencegahan dan pemadaman. Pengetahuan ini diperoleh melalui pengalaman langsung di lapangan,
+          pelatihan, sekolah lapang, serta koordinasi dengan lembaga seperti BRGM, KPH, atau Manggala Agni.
+        </p>
+        <p>
+          Namun, pengetahuan ini perlu terus diperbarui agar anggota MPA dapat mengikuti perkembangan teknologi
+          pemantauan (misalnya penggunaan aplikasi pelaporan kebakaran) dan strategi pengelolaan lahan tanpa bakar
+          yang lebih ramah lingkungan.
+        </p>
+
+        <h3>5.2 Motivasi</h3>
+        <p>
+          Motivasi anggota MPA muncul dari dorongan internal seperti rasa tanggung jawab moral terhadap desa,
+          kepedulian terhadap lingkungan, dan kebanggaan menjadi “penjaga api” di wilayahnya. Di sisi lain,
+          motivasi eksternal berupa insentif finansial, bantuan peralatan, dan penghargaan juga sangat membantu
+          menjaga semangat mereka.
+        </p>
+        <p>
+          Jika motivasi ini menurun, partisipasi dalam patroli dan pemadaman bisa berkurang. Karena itu, penting
+          ada skema dukungan berkelanjutan agar anggota MPA merasa dihargai dan tetap terdorong menjaga desa
+          dari kebakaran.
+        </p>
+
+        <h3>5.3 Partisipasi</h3>
+        <p>
+          Partisipasi MPA tercermin dari keterlibatan mereka dalam rapat desa, patroli lapangan, pendidikan masyarakat,
+          dan aksi pemadaman. Di beberapa desa, partisipasi ini sudah cukup tinggi, tetapi peran mereka dalam pengambilan
+          keputusan masih terbatas.
+        </p>
+        <p>
+          Dengan penguatan kelembagaan dan dukungan kebijakan desa, MPA diharapkan dapat bergerak dari posisi
+          sebagai mitra pelaksana menjadi aktor utama yang memiliki kendali lebih besar (citizen control) dalam
+          perencanaan dan pelaksanaan pencegahan kebakaran.
+        </p>
+      </section>
+
+      <!-- BAB 6 (diperluas) -->
+      <section id="bab6">
+        <h2><span class="pill">Bab 6</span> Studi Kasus Lapangan di Empat Desa</h2>
+        <p>
+          Kajian lapangan pada Desa Pandan Sejahtera, Pandan Makmur, Seponjen, dan Rantau Panjang menunjukkan dinamika
+          yang berbeda-beda, tetapi memiliki pola tantangan yang mirip: ketergantungan ekonomi pada lahan gambut,
+          kerentanan terhadap kebakaran, dan pentingnya peran MPA dalam menjaga keseimbangan antara pemanfaatan
+          lahan dan perlindungan lingkungan.
+        </p>
+
+        <h3>6.1 Desa Pandan Sejahtera</h3>
+        <p>
+          Desa Pandan Sejahtera berada di kawasan gambut dengan jaringan kanal yang cukup padat dan kedalaman gambut
+          yang bervariasi. Masyarakatnya banyak menggantungkan hidup pada pertanian dan perkebunan di lahan basah
+          maupun gambut. Di desa ini telah dibangun berbagai infrastruktur pembasahan seperti sekat kanal dan sumur bor
+          untuk menjaga muka air tanah tetap tinggi, sehingga risiko kebakaran dapat ditekan.
+        </p>
+        <p>
+          MPA di Desa Pandan Sejahtera dikenal aktif melakukan patroli dan sosialisasi. Mereka rutin berkeliling bersama
+          perusahaan sekitar dan KPH untuk memantau titik-titik rawan, terutama di musim kemarau. Dukungan peralatan
+          yang relatif lebih memadai (mesin pompa, selang, dan alat pelindung diri) membuat mereka mampu merespon
+          kejadian kebakaran kecil dengan cepat sebelum meluas. Kolaborasi ini mempercepat deteksi potensi kebakaran
+          dan membangun kepercayaan antara masyarakat dan perusahaan.
+        </p>
+        <p>
+          Meski demikian, tantangan tetap ada. Pendangkalan kanal, perubahan tata guna lahan, dan aktivitas pembukaan
+          lahan masih dapat menurunkan efektivitas infrastruktur pembasahan. Karena itu, keberhasilan MPA di Pandan
+          Sejahtera perlu didukung oleh perawatan berkala sekat kanal, perbaikan jalur akses ke titik-titik rawan api,
+          serta perencanaan penggunaan lahan yang lebih mempertimbangkan fungsi lindung gambut.
+        </p>
+
+        <h3>6.2 Desa Pandan Makmur</h3>
+        <p>
+          Desa Pandan Makmur didominasi oleh kebun kelapa sawit dan komoditas lain yang berkembang di atas lahan
+          gambut. Mayoritas penduduk merupakan transmigran yang telah lama bermukim dan mengandalkan kebun sebagai
+          sumber penghasilan utama. Kondisi ini menjadikan desa sangat bergantung pada keberlanjutan ekosistem
+          gambut: ketika gambut rusak atau terbakar, pendapatan masyarakat ikut terancam.
+        </p>
+        <p>
+          Kegiatan patroli terpadu antara MPA dan perusahaan di sekitar desa menjadi praktik baik yang telah
+          berjalan. Melalui patroli bersama, titik-titik api dapat dideteksi lebih awal, dan jalur komunikasi
+          antara perusahaan, desa, dan KPH menjadi lebih lancar. Selain itu, diskusi informal di lapangan sering
+          dimanfaatkan untuk memberikan edukasi singkat kepada petani tentang pembukaan lahan tanpa bakar serta
+          pentingnya menjaga kanal agar tidak terlalu dalam.
+        </p>
+        <p>
+          Walau begitu, Pandan Makmur masih membutuhkan peningkatan kapasitas. Sebagian petani masih belum terbiasa
+          dengan praktik budidaya berkelanjutan di lahan gambut, dan banyak kanal yang awalnya untuk pengairan justru
+          mempercepat pengeringan gambut. Pelatihan teknis bagi MPA dan kelompok tani, simulasi penanganan kebakaran,
+          serta pendampingan dalam perbaikan tata kelola air menjadi kebutuhan mendesak untuk memperkuat ketahanan desa
+          terhadap karhutla.
+        </p>
+
+        <h3>6.3 Desa Seponjen</h3>
+        <p>
+          Desa Seponjen memiliki wilayah yang luas dengan kombinasi kebun sawit, lahan pertanian, dan sisa hutan
+          sekunder. Sebagian besar masyarakat menggantungkan ekonomi pada perkebunan kelapa sawit, sementara lahan
+          gambut yang dalam masih tersebar di beberapa bagian desa. Dari sisi hidrologi, desa ini dilengkapi beberapa
+          sekat kanal dan infrastruktur pembasahan lain, namun belum semua berfungsi optimal.
+        </p>
+        <p>
+          Permasalahan utama di Seponjen adalah kondisi infrastruktur sekat kanal yang tidak selalu terawat dan
+          perubahan tata guna lahan yang cepat. Jika kanal dibiarkan terbuka dan mengalami pendangkalan atau kebocoran,
+          air mudah keluar dari kawasan gambut sehingga muka air tanah turun dan lahan menjadi lebih kering pada
+          musim kemarau. MPA di desa ini memiliki komitmen kuat dalam melaporkan kejadian dan berkoordinasi dengan
+          pihak luar, tetapi sering terkendala oleh akses peralatan dan jarak tempuh ke lokasi rawan api.
+        </p>
+        <p>
+          Ke depan, Desa Seponjen berpotensi menjadi model desa gambut yang mengintegrasikan usaha perkebunan
+          berkelanjutan dengan penguatan MPA dan pembasahan gambut. Syaratnya, perawatan sekat kanal harus
+          ditingkatkan, pengetahuan petani tentang budidaya ramah gambut diperluas, dan kelembagaan MPA diperkuat
+          agar dapat lebih berperan dalam perencanaan desa dan pengawasan kebakaran.
+        </p>
+
+        <h3>6.4 Desa Rantau Panjang</h3>
+        <p>
+          Desa Rantau Panjang berada di lanskap gambut yang terhubung dengan desa-desa lain, dan secara historis
+          pernah mengalami kebakaran yang cukup besar. Sebagian besar lahan desa berupa gambut dengan kedalaman
+          lebih dari satu meter, sehingga ketika mengering pada musim kemarau, kawasan ini sangat rentan terbakar.
+          Di sisi lain, kedekatannya dengan sungai besar membuat desa juga sering mengalami banjir musiman.
+        </p>
+        <p>
+          Data menunjukkan bahwa infrastruktur pembasahan di desa ini masih sangat terbatas dibanding desa lain.
+          Ketiadaan sekat kanal dan IPG lainnya membuat air lebih cepat keluar dari tubuh gambut, sehingga
+          meningkatkan risiko kekeringan dan kebakaran di musim kemarau. Ketika kebakaran besar terjadi, MPA dan
+          warga sering kesulitan menjangkau sumber air yang cukup dekat dan aman untuk operasi pemadaman.
+        </p>
+        <p>
+          Kasus kebakaran besar yang pernah terjadi di Rantau Panjang menjadi pelajaran penting bahwa kesiapsiagaan,
+          penyediaan alat pemadam, dan penguatan kelembagaan MPA tidak bisa ditunda. Desa ini perlu diprioritaskan
+          dalam pembangunan infrastruktur pembasahan baru, penyusunan tata ruang yang sensitif terhadap kedalaman
+          gambut, serta program pelatihan MPA dan warga agar mampu merespon kebakaran lebih cepat dan terkoordinasi.
+        </p>
+      </section>
+
+      <!-- BAB 7 (diperluas) -->
+      <section id="bab7">
+        <h2><span class="pill">Bab 7</span> Rencana Aksi Pencegahan dan Pemadaman</h2>
+        <p>
+          Untuk mencegah kebakaran secara berkelanjutan, diperlukan rangkaian rencana aksi yang saling menguatkan di
+          tingkat desa. Rencana aksi berikut dapat dijadikan acuan bagi pemerintah desa, MPA, dan mitra lainnya
+          dalam menyusun program kerja tahunan maupun rencana jangka menengah desa bebas api.
+        </p>
+
+        <h3>7.1 Penguatan Kapasitas MPA</h3>
+        <p>
+          Penguatan kapasitas MPA tidak hanya berarti memberi pelatihan sekali dua kali, tetapi membangun proses
+          pembelajaran berkelanjutan. Pelatihan teknis perlu mencakup teknik pemadaman (cara menggunakan pompa,
+          selang, dan peralatan manual), keselamatan kerja di lahan gambut, teknik patroli dan pemetaan titik rawan,
+          hingga penggunaan alat sederhana untuk memantau tinggi muka air tanah.
+        </p>
+        <p>
+          Simulasi lapangan (drill) secara berkala penting dilakukan menjelang dan selama musim kemarau. Kegiatan ini
+          dapat melibatkan KPH, Manggala Agni, BPBD, dan perusahaan untuk memastikan semua pihak memahami alur
+          koordinasi saat terjadi kebakaran. Sertifikasi keahlian bagi anggota MPA juga bisa dikembangkan sebagai
+          bentuk pengakuan formal atas kapasitas mereka.
+        </p>
+        <p>
+          Selain aspek teknis, kapasitas dalam komunikasi, mediasi, dan edukasi masyarakat juga perlu diperkuat.
+          Anggota MPA yang mampu menjelaskan risiko kebakaran dan pilihan alternatif pembukaan lahan kepada petani
+          akan lebih efektif mengubah perilaku warga dibanding hanya mengandalkan pendekatan represif atau himbauan
+          satu arah.
+        </p>
+
+        <h3>7.2 Penyediaan Peralatan dan Infrastruktur</h3>
+        <p>
+          MPA membutuhkan peralatan pemadaman yang memadai, seperti mesin pompa air, selang dengan panjang cukup,
+          nozel, ember, sekop, dan alat pemukul api. Peralatan pelindung diri (sepatu boot, sarung tangan, helm,
+          masker, dan baju tahan panas sederhana) juga sangat penting untuk mengurangi risiko cedera saat anggota
+          MPA bekerja di lapangan.
+        </p>
+        <p>
+          Di tingkat lanskap, pembangunan dan perbaikan infrastruktur pembasahan gambut (IPG) seperti sekat kanal,
+          embung desa, dan sumur bor menjadi prioritas. Sekat kanal yang berfungsi baik akan membantu menjaga muka
+          air tanah, sehingga lahan gambut tidak terlalu mengering. Embung desa dapat dijadikan sumber air untuk
+          pemadaman sekaligus mendukung kebutuhan air pertanian dan rumah tangga.
+        </p>
+        <p>
+          Agar efektif, penyediaan peralatan dan infrastruktur harus disertai dengan sistem pemeliharaan. Desa
+          bersama MPA dapat menyusun jadwal pemeriksaan rutin, buku inventaris peralatan, dan mekanisme tanggung
+          jawab yang jelas siapa menjaga, memperbaiki, dan melaporkan kondisi peralatan maupun IPG yang rusak.
+        </p>
+
+        <h3>7.3 Penguatan Kelembagaan</h3>
+        <p>
+          Penguatan kelembagaan MPA dimulai dari pengakuan formal di tingkat desa, misalnya melalui Peraturan Desa
+          (Perdes) yang menetapkan MPA sebagai bagian dari lembaga desa. Dengan status ini, MPA berhak mendapat
+          dukungan anggaran dari APBDes maupun mudah diakses oleh program-program pemerintah dan mitra lain.
+        </p>
+        <p>
+          MPA juga perlu memiliki Anggaran Dasar/Anggaran Rumah Tangga (AD/ART), struktur organisasi yang jelas,
+          dan sistem pelaporan kegiatan yang tertib. Hal ini memudahkan evaluasi kinerja, pergantian kepengurusan,
+          dan transparansi penggunaan bantuan yang diterima.
+        </p>
+        <p>
+          Di tingkat yang lebih luas, kelembagaan MPA dapat dihubungkan dengan forum multipihak, seperti forum
+          peduli gambut atau forum desa bebas api, sehingga suara mereka terdengar dalam perumusan kebijakan
+          pengelolaan lahan dan kebakaran di tingkat kecamatan maupun kabupaten.
+        </p>
+
+        <h3>7.4 Edukasi dan Perubahan Perilaku Masyarakat</h3>
+        <p>
+          Edukasi merupakan kunci perubahan perilaku jangka panjang. Program desa bebas api dapat dikemas dalam
+          bentuk sekolah lapang, pertemuan kelompok tani, penyuluhan di masjid atau balai desa, hingga kegiatan
+          edukasi kreatif untuk anak dan pemuda. Fokus edukasi antara lain bahaya asap bagi kesehatan, kerugian
+          ekonomi akibat kebakaran, dan praktik pembukaan lahan tanpa bakar.
+        </p>
+        <p>
+          Pendekatan <em>zero burning</em> perlu disosialisasikan dengan bahasa sederhana dan contoh nyata. Misalnya,
+          demonstrasi teknis pengolahan sisa tanaman tanpa dibakar, penggunaan mulsa, atau pemanfaatan mesin pencacah
+          biomassa. Bila memungkinkan, contoh petani yang sudah berhasil menerapkan teknik tanpa bakar dapat dijadikan
+          “champion” lokal untuk menginspirasi warga lain.
+        </p>
+        <p>
+          Perubahan perilaku juga perlu menyasar pemangku kepentingan lainnya seperti perusahaan dan pemerintah
+          desa. Kesepakatan bersama tentang larangan pembakaran, prosedur pelaporan titik api, dan sanksi sosial
+          yang disepakati warga dapat memperkuat norma baru yang mendukung desa bebas api.
+        </p>
+
+        <h3>7.5 Sistem Pelaporan dan Teknologi</h3>
+        <p>
+          Sistem pelaporan yang cepat dan jelas sangat menentukan keberhasilan pemadaman dini. Desa dapat
+          menetapkan jalur pelaporan berjenjang: warga melapor ke MPA atau kepala dusun, lalu MPA menghubungi
+          pemerintah desa, KPH, dan pihak lain yang relevan. Nomor kontak penting (BPBD, Manggala Agni, perusahaan
+          sekitar) perlu dipasang di tempat-tempat strategis seperti balai desa dan posko MPA.
+        </p>
+        <p>
+          Pemanfaatan teknologi seperti aplikasi pelaporan kebakaran, grup pesan instan, dan pemantauan titik
+          panas dari internet dapat meningkatkan kecepatan respon. Anggota MPA dan perangkat desa perlu dibekali
+          kemampuan dasar membaca informasi hotspot dan memadukannya dengan pengamatan lapangan.
+        </p>
+        <p>
+          Idealnya, sistem pelaporan dan teknologi ini mampu membantu penanganan kebakaran dalam waktu kurang dari
+          satu jam sejak api terdeteksi. Semakin cepat respon, semakin kecil peluang api membesar dan meluas
+          ke area lain.
+        </p>
+
+        <h3>7.6 Insentif dan Penguatan Ekonomi</h3>
+        <p>
+          Insentif merupakan bagian penting dari strategi perubahan perilaku. Program “Desa Bebas Api” yang
+          memberikan penghargaan bagi desa yang berhasil menekan kebakaran dapat memacu motivasi bersama. Insentif
+          dapat berupa bantuan peralatan pertanian, bibit tanaman bernilai ekonomi, atau dukungan infrastruktur desa.
+        </p>
+        <p>
+          Bagi MPA, dukungan ekonomi produktif seperti pelatihan usaha kecil, bantuan modal bergulir, atau
+          kemitraan pemasaran produk lokal dapat memperkuat kemandirian ekonomi anggota. Dengan demikian, keikutsertaan
+          dalam MPA bukan hanya bentuk pengabdian sukarela, tetapi juga membuka peluang peningkatan kesejahteraan.
+        </p>
+        <p>
+          Insentif tidak harus selalu berbentuk uang. Pengakuan sosial, sertifikat, pemberitaan positif di media,
+          dan kesempatan mengikuti pelatihan lanjutan juga dapat menjadi penghargaan yang berarti bagi anggota MPA
+          dan masyarakat yang aktif mendukung upaya pencegahan kebakaran.
+        </p>
+      </section>
+
+      <!-- BAB 8: Evaluasi -->
+      <section id="bab8">
+        <h2><span class="pill">Bab 8</span> Evaluasi Pembelajaran</h2>
+        <p>
+          Gunakan pertanyaan berikut sebagai bahan evaluasi pemahaman peserta. Dapat dikerjakan secara individu
+          maupun diskusi kelompok.
+        </p>
+
+        <div class="evaluasi-list">
+          <ol>
+            <li>
+              Sebutkan tiga penyebab utama kebakaran gambut.
+              <div class="jawaban-kosong">Catat jawaban Anda di sini.</div>
+            </li>
+            <li>
+              Mengapa Masyarakat Peduli Api (MPA) penting dalam pencegahan kebakaran di tingkat desa?
+              <div class="jawaban-kosong">Catat jawaban Anda di sini.</div>
+            </li>
+            <li>
+              Apa keuntungan MPA menjadi lembaga resmi desa melalui Peraturan Desa (Perdes)?
+              <div class="jawaban-kosong">Catat jawaban Anda di sini.</div>
+            </li>
+            <li>
+              Jelaskan hubungan antara pengetahuan, motivasi, dan partisipasi dalam perubahan perilaku pencegahan kebakaran.
+              <div class="jawaban-kosong">Catat jawaban Anda di sini.</div>
+            </li>
+            <li>
+              Menurut Anda, rencana aksi apa yang paling penting untuk mencegah kebakaran gambut di desa Anda?
+              Jelaskan alasannya.
+              <div class="jawaban-kosong">Catat jawaban Anda di sini.</div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- BAB 9: Penutup -->
+      <section id="bab9">
+        <h2><span class="pill">Bab 9</span> Penutup</h2>
+        <p>
+          Kebakaran gambut merupakan masalah yang kompleks, tetapi bukan berarti tidak dapat dikendalikan. Sinergi
+          kuat antara masyarakat, pemerintah, dan sektor swasta adalah kunci untuk mengurangi risiko dan dampak
+          kebakaran. Masyarakat Peduli Api (MPA) berperan sebagai ujung tombak di tingkat desa yang menjaga agar
+          api tidak berkembang menjadi bencana besar.
+        </p>
+        <p>
+          Dengan penguatan kapasitas, kelembagaan, infrastruktur pembasahan gambut, sistem pelaporan yang cepat,
+          serta skema insentif yang adil, MPA dapat berkembang menjadi lembaga yang mandiri dan berkelanjutan.
+          Perubahan perilaku masyarakat—dari kebiasaan membuka lahan dengan api menuju praktik yang lebih ramah
+          lingkungan—perlu terus didukung oleh edukasi, pendampingan, dan penghargaan atas upaya yang berhasil.
+        </p>
+        <p>
+          Modul ini diharapkan dapat membantu pembaca memahami pentingnya kolaborasi multipihak dan peran setiap
+          individu dalam menjaga lingkungan dari ancaman kebakaran gambut. Setiap tindakan kecil, seperti tidak
+          membakar lahan, melapor ketika melihat asap, atau ikut dalam kegiatan MPA, merupakan kontribusi berharga
+          bagi terciptanya desa yang tangguh dan bebas api.
+        </p>
+
+        <p class="footer-note">
+          <strong>Catatan untuk Pengajar:</strong> Modul ini dapat dikembangkan lebih lanjut dengan menambahkan
+          peta, foto kegiatan MPA, dan contoh rencana aksi desa bebas api yang spesifik sesuai konteks wilayah
+          masing-masing.
+        </p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
