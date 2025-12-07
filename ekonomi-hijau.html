@@ -1,58 +1,699 @@
 <!doctype html>
 <html lang="id">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Ekonomi Hijau — Bahan Ajar</title>
-<style>
-  body{font-family:system-ui;background:#f8fafc;margin:0;color:#111}
-  header{background:#174e6b;color:#fff;padding:14px}
-  header a{color:#fff;text-decoration:none}
-  main{max-width:900px;margin:18px auto;padding:0 18px}
-  .card{background:#fff;padding:12px;border-radius:8px;box-shadow:0 1px 6px rgba(0,0,0,.06);margin-bottom:12px}
-  .btn{background:#174e6b;color:#fff;padding:8px 10px;border-radius:6px;text-decoration:none}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ekonomi Hijau & Bisnis Berkelanjutan di Wilayah Desa Gambut</title>
+
+  <style>
+    :root {
+      --bg-body: #e5f5e0;
+      --bg-note: #fdfaf1;
+      --green-main: #166534;
+      --green-soft: #22c55e;
+      --green-deep: #064e3b;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --line: rgba(22, 101, 52, 0.2);
+      --accent-gold: #d4a937;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, #bbf7d0 0, transparent 55%),
+        radial-gradient(circle at bottom right, #a7f3d0 0, transparent 60%),
+        #d1fae5;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    main.container {
+      max-width: 1100px;
+      margin: 1.5rem auto;
+      padding: 1rem;
+    }
+
+    .banknote {
+      position: relative;
+      background:
+        repeating-linear-gradient(
+          135deg,
+          rgba(16, 185, 129, 0.05),
+          rgba(16, 185, 129, 0.05) 6px,
+          rgba(217, 249, 157, 0.12) 6px,
+          rgba(217, 249, 157, 0.12) 12px
+        );
+      border-radius: 22px;
+      padding: 2rem 1.8rem;
+      box-shadow:
+        0 18px 40px rgba(15, 23, 42, 0.4),
+        0 0 0 1px rgba(148, 163, 184, 0.4),
+        0 0 0 6px rgba(187, 247, 208, 0.7);
+      border: 1px solid rgba(22, 163, 74, 0.4);
+      overflow: hidden;
+    }
+
+    .banknote::before,
+    .banknote::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 18px;
+      border: 1px dashed rgba(22, 163, 74, 0.3);
+      pointer-events: none;
+    }
+
+    .banknote::after {
+      inset: 34px;
+      border-style: solid;
+      border-width: 0 0 1px 0;
+      border-color: rgba(21, 128, 61, 0.25);
+      opacity: 0.9;
+    }
+
+    header.hero {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.8rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--green-deep);
+      font-weight: 700;
+      background: rgba(240, 253, 244, 0.95);
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(22, 163, 74, 0.4);
+      box-shadow: 0 0 0 1px rgba(34,197,94,0.15);
+    }
+
+    .seal {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 30%, #bbf7d0 0, #16a34a 45%, #022c22 100%);
+      box-shadow:
+        0 0 0 3px rgba(240, 253, 244, 0.9),
+        0 0 16px rgba(22, 163, 74, 0.7);
+      border: 2px solid rgba(22, 101, 52, 0.5);
+      position: relative;
+    }
+
+    .seal::after {
+      content: "RP";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: #ecfdf5;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      margin: 0.5rem 0 0.2rem;
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      line-height: 1.2;
+      color: var(--green-deep);
+      text-shadow: 0 0 12px rgba(22, 101, 52, 0.35);
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .pengajar {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      color: #365314;
+      font-weight: 600;
+    }
+
+    .serial {
+      font-family: "Courier New", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Roboto Mono", "Ubuntu Mono", monospace;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: #166534;
+      letter-spacing: 0.2em;
+      background: rgba(236, 252, 203, 0.9);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(132, 204, 22, 0.8);
+    }
+
+    nav.toc {
+      margin: 1.4rem 0 1.8rem;
+      padding: 1rem 1.3rem;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #f7fee7, #ecfccb);
+      border: 1px solid rgba(132, 204, 22, 0.6);
+      position: relative;
+      z-index: 1;
+    }
+
+    nav.toc h2 {
+      margin: 0 0 0.6rem;
+      font-size: 1rem;
+      color: #3f6212;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    nav.toc h2 span.icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 20%, #bef264 0, #22c55e 55%, #166534 100%);
+      box-shadow: 0 0 8px rgba(22, 163, 74, 0.8);
+    }
+
+    nav.toc ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      columns: 2;
+      column-gap: 2.5rem;
+      font-size: 0.9rem;
+    }
+
+    nav.toc li {
+      margin: 0.1rem 0;
+      break-inside: avoid;
+    }
+
+    nav.toc a {
+      text-decoration: none;
+      color: #3f6212;
+    }
+
+    nav.toc a:hover {
+      text-decoration: underline;
+      color: #166534;
+    }
+
+    section {
+      margin: 1.9rem 0;
+      padding-top: 0.8rem;
+      border-top: 2px solid var(--line);
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 1.25rem;
+      color: var(--green-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    h2 .pill {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #365314;
+      background: rgba(236, 252, 203, 0.9);
+      padding: 0.1rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(190, 242, 100, 0.8);
+    }
+
+    h3 {
+      margin-top: 1.1rem;
+      font-size: 1.05rem;
+      color: #15803d;
+    }
+
+    p {
+      margin: 0.35rem 0;
+      font-size: 0.95rem;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    ul, ol {
+      margin: 0.4rem 0 0.9rem 1.1rem;
+      font-size: 0.95rem;
+    }
+
+    li {
+      margin: 0.18rem 0;
+    }
+
+    .callout {
+      border-radius: 14px;
+      padding: 0.75rem 1rem;
+      background: linear-gradient(90deg, rgba(240, 253, 250, 0.96), rgba(220, 252, 231, 0.96));
+      border: 1px solid rgba(45, 212, 191, 0.7);
+      font-size: 0.9rem;
+      color: #036857;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #166534;
+      background: #ecfdf3;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 197, 94, 0.7);
+      margin-bottom: 0.3rem;
+    }
+
+    .evaluasi-box {
+      background: #f0fdf4;
+      border-radius: 16px;
+      border: 1px dashed rgba(22, 163, 74, 0.7);
+      padding: 0.9rem 1rem 1.1rem;
+      margin-top: 0.6rem;
+    }
+
+    .evaluasi-box li {
+      margin: 0.35rem 0 0.7rem;
+    }
+
+    .jawaban-kosong {
+      margin-top: 0.2rem;
+      border-radius: 8px;
+      border: 1px dashed rgba(148, 163, 184, 0.9);
+      padding: 0.5rem;
+      min-height: 2.1rem;
+      font-size: 0.85rem;
+      color: #64748b;
+      font-style: italic;
+    }
+
+    .footer-note {
+      margin-top: 1.3rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      padding-top: 0.7rem;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      main.container {
+        margin: 0.8rem auto 1.4rem;
+        padding: 0.7rem;
+      }
+
+      .banknote {
+        padding: 1.4rem 1rem;
+      }
+
+      .banknote::after {
+        display: none;
+      }
+
+      nav.toc ul {
+        columns: 1;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <header><a href="index.html">&larr; Kembali</a> <strong style="margin-left:12px">Ekonomi Hijau</strong></header>
-  <main>
-    <h1>Ringkasan</h1>
-    <section class="card">
-      <p>Ekonomi hijau mengacu pada pembangunan ekonomi yang menghasilkan peningkatan kesejahteraan sosial dan pengurangan risiko lingkungan. Di lanskap gambut, ekonomi hijau berarti mendorong praktik bukannya ekploitasi kanal dan membuka lahan, misalnya agroforestri gambut ramah, pengelolaan jasa ekosistem, dan skema insentif konservasi.</p>
-    </section>
+  <main class="container">
+    <article class="banknote">
+      <header class="hero">
+        <div class="hero-top">
+          <div>
+            <div class="eyebrow">Modul Bahan Ajar – Ekonomi Hijau</div>
+            <h1>Ekonomi Hijau & Bisnis Berkelanjutan di Wilayah Desa Gambut</h1>
+            <p class="subtitle">
+              Studi kasus Desa Pandan Makmur, Pandan Sejahtera, Sponjen, dan Rantau Panjang di Provinsi Jambi.
+            </p>
+            <p class="pengajar">
+              Pengajar: Rahmad Nurmansah, S.Hut., M.Si.
+            </p>
+          </div>
+          <div>
+            <div class="seal" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div style="margin-top:0.5rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;">
+          <span class="serial">EKO-HIJAU-DSG-2025</span>
+          <span style="font-size:0.8rem; color:#4b5563;">
+            Motif: lembar uang kertas hijau – nilai diukur dari keberlanjutan.
+          </span>
+        </div>
+      </header>
 
-    <h2>Tujuan Pembelajaran</h2>
-    <section class="card">
-      <ul>
-        <li>Memahami prinsip ekonomi hijau dalam konteks lahan gambut.</li>
-        <li>Menilai mekanisme insentif (mis. pembayaran jasa ekosistem, carbon finance).</li>
-        <li>Membuat rencana kegiatan ekonomi alternatif untuk masyarakat desa.</li>
-      </ul>
-    </section>
+      <!-- DAFTAR ISI -->
+      <nav class="toc">
+        <h2><span class="icon"></span>Daftar Isi</h2>
+        <ul>
+          <li><a href="#pendahuluan">1. Administrasi Wilayah Desa</a></li>
+          <li><a href="#dasar-hukum">2. Dasar Hukum Ekonomi Hijau & Bisnis Berkelanjutan</a></li>
+          <li><a href="#ringkasan-hijau">3. Ringkasan Ekonomi Hijau di Wilayah Studi</a></li>
+          <li><a href="#tujuan">4. Tujuan Pembelajaran</a></li>
+          <li><a href="#uraian-materi">5. Uraian Materi Ekonomi Hijau</a></li>
+          <li><a href="#aktivitas-implementasi">6. Aktivitas & Implementasi Ekonomi Hijau</a></li>
+          <li><a href="#pandan-sejahtera">7. Potensi Bisnis Berkelanjutan Desa Pandan Sejahtera</a></li>
+          <li><a href="#pandan-makmur">8. Potensi Bisnis Berkelanjutan Desa Pandan Makmur</a></li>
+          <li><a href="#rantau-panjang">9. Potensi Bisnis Berkelanjutan Desa Rantau Panjang</a></li>
+          <li><a href="#sponjen">10. Potensi Bisnis Berkelanjutan Desa Sponjen</a></li>
+          <li><a href="#evaluasi">11. Evaluasi Pembelajaran</a></li>
+        </ul>
+      </nav>
 
-    <h2>Konten Inti</h2>
-    <section class="card">
-      <ol>
-        <li>Contoh model ekonomi hijau: agroforestri 50:50, PES (Payment for Environmental Services).</li>
-        <li>Analisis biaya-manfaat restorasi vs. konversi lahan.</li>
-        <li>Peran koperasi desa dan akses pasar.</li>
-      </ol>
-    </section>
+      <!-- 1. ADMINISTRASI WILAYAH DESA -->
+      <section id="pendahuluan">
+        <h2><span class="pill">Bagian 1</span> Administrasi Wilayah Desa</h2>
+        <p>
+          Wilayah administratif seperti Desa Pandan Makmur, Pandan Sejahtera, Sponjen, dan Rantau Panjang merupakan bagian dari kawasan
+          pedesaan di Provinsi Jambi. Wilayah ini mencerminkan karakteristik khas pedesaan di Indonesia yang mengandalkan sektor primer
+          sebagai tulang punggung ekonomi masyarakat, seperti pertanian, perikanan, peternakan, dan produk kerajinan. Secara administratif,
+          desa-desa tersebut berperan penting sebagai unit pemerintahan terkecil yang menyelenggarakan pemerintahan dan pembangunan di tingkat lokal.
+        </p>
+        <p>
+          Dalam konteks pembangunan daerah, desa menjadi pilar dalam mewujudkan visi pembangunan nasional dari bawah (<em>bottom-up</em>),
+          yang berorientasi pada penguatan ekonomi lokal, ketahanan sosial, dan pelestarian lingkungan. Meskipun memiliki potensi sumber daya
+          alam dan manusia yang cukup besar, tantangan pembangunan ekonomi desa masih kompleks, termasuk akses pasar, infrastruktur,
+          kapasitas kelembagaan, dan tekanan terhadap ekosistem gambut yang menjadi fondasi ekologis wilayah ini.
+        </p>
+        <p>
+          Keempat desa berada pada kawasan yang memiliki komponen lahan gambut dengan karakteristik ekosistem basah yang khas. Lahan gambut
+          terbentuk dari timbunan bahan organik yang terendam air dalam jangka waktu lama dan berperan sebagai penyimpan karbon, pengatur tata air,
+          serta habitat keanekaragaman hayati rawa. Pemanfaatan gambut untuk perkebunan dan pertanian perlu dikelola secara hati-hati agar tidak
+          menimbulkan degradasi dan kebakaran yang merugikan masyarakat maupun lingkungan.
+        </p>
+      </section>
 
-    <h2>Aktivitas</h2>
-    <section class="card">
-      <ol>
-        <li>Workshop desain usaha agroforestri (kelompok kerja).</li>
-        <li>Latihan: hitung sederhana potensi pendapatan vs. biaya pemeliharaan IPG.</li>
-      </ol>
-    </section>
+      <!-- 2. DASAR HUKUM -->
+      <section id="dasar-hukum">
+        <h2><span class="pill">Bagian 2</span> Dasar Hukum Ekonomi Hijau & Bantuan Bisnis Berkelanjutan</h2>
+        <p>
+          Strategi ekonomi hijau dan bisnis berkelanjutan di wilayah gambut didukung oleh berbagai dasar hukum nasional dan daerah,
+          yang menjadi rujukan dalam perencanaan maupun pelaksanaan program:
+        </p>
+        <ul>
+          <li>
+            Permen Koperasi dan Usaha Kecil Menengah Republik Indonesia Nomor 14 Tahun 2023 tentang norma, standar, prosedur,
+            dan kriteria penyelenggaraan inkubasi bisnis.
+          </li>
+          <li>
+            Permen LHK P.16/2017 tentang Pedoman Teknis Pemulihan Fungsi Ekosistem Gambut.
+          </li>
+          <li>
+            Permen LHK 4/2024 tentang Penugasan Pelaksanaan Kegiatan Restorasi Gambut Tahun Anggaran 2024.
+          </li>
+          <li>
+            Peraturan Gubernur Jambi Nomor 7 Tahun 2024 tentang Pelaksanaan Peraturan Daerah Provinsi Jambi Nomor 4 Tahun 2023
+            mengenai Rencana Pertumbuhan Ekonomi Hijau.
+          </li>
+        </ul>
+        <p>
+          Dalam kerangka kebijakan nasional, desa-desa ini juga menjadi prioritas program pembangunan desa berkelanjutan sebagaimana
+          diamanatkan oleh Undang-Undang Nomor 6 Tahun 2014 tentang Desa dan dukungan terhadap implementasi Tujuan Pembangunan
+          Berkelanjutan (<em>Sustainable Development Goals</em>/SDGs) Desa.
+        </p>
+      </section>
 
-    <h2>Referensi</h2>
-    <section class="card">
-      <ul>
-        <li>Ringkasan: Mekanisme carbon finance untuk restorasi gambut.</li>
-        <li>Studi kasus: program agroforestry di dataran rendah tropis.</li>
-      </ul>
-    </section>
-  </main>
-</body>
-</html>
+      <!-- 3. RINGKASAN EKONOMI HIJAU -->
+      <section id="ringkasan-hijau">
+        <h2><span class="pill">Bagian 3</span> Ringkasan Ekonomi Hijau di Wilayah Studi</h2>
+        <p>
+          Ekonomi hijau merupakan pendekatan pembangunan yang menempatkan kesejahteraan sosial, efisiensi ekonomi, dan keberlanjutan
+          lingkungan sebagai satu kesatuan. Dalam konteks lanskap gambut, ekonomi hijau berarti menggeser paradigma pengelolaan dari
+          praktik-praktik destruktif menuju sistem produksi yang rendah emisi, menjaga fungsi ekosistem, dan memberikan manfaat ekonomi
+          jangka panjang kepada masyarakat.
+        </p>
+        <p>
+          Gambut berfungsi sebagai penyimpan air, pengendali banjir, serta penyimpan karbon terbesar di daratan. Ketika gambut rusak,
+          dampaknya bisa berupa peningkatan emisi karbon, kebakaran besar, penurunan produktivitas lahan, hingga kerugian ekonomi dan
+          kesehatan masyarakat. Karena itu, ekonomi hijau di gambut menekankan:
+        </p>
+        <ul>
+          <li>Menghindari praktik destruktif, seperti kanal yang mengeringkan gambut dan pembukaan lahan dengan api.</li>
+          <li>Mengembangkan sistem produksi rendah emisi yang cocok untuk gambut basah (sagu, jelutung rawa, purun, ikan rawa, dll.).</li>
+          <li>Menjaga fungsi ekosistem melalui restorasi, penataan tata air, dan perlindungan kawasan.</li>
+          <li>Menciptakan manfaat ekonomi jangka panjang bagi masyarakat melalui komoditas lokal yang ramah gambut.</li>
+        </ul>
+        <p>
+          Pendekatan ini menjadi fondasi penting dalam menciptakan masa depan yang lebih aman, produktif, dan berkelanjutan bagi
+          wilayah gambut dan komunitas di sekitarnya.
+        </p>
+      </section>
+
+      <!-- 4. TUJUAN PEMBELAJARAN -->
+      <section id="tujuan">
+        <h2><span class="pill">Bagian 4</span> Tujuan Pembelajaran</h2>
+        <div class="callout">
+          <p class="badge">Setelah mempelajari modul ini, peserta diharapkan mampu:</p>
+          <ul>
+            <li>Memahami konsep dasar ekonomi hijau dan relevansinya bagi wilayah gambut.</li>
+            <li>Mengidentifikasi karakteristik dan fungsi ekologis gambut sebagai penyangga lingkungan.</li>
+            <li>Menganalisis tantangan pengelolaan gambut dari aspek ekologis, ekonomi, dan sosial.</li>
+            <li>Menjelaskan konsep bisnis berkelanjutan di lanskap gambut dan kaitannya dengan ekonomi hijau.</li>
+            <li>Mengidentifikasi praktik pengelolaan ramah gambut pada sektor pertanian, perkebunan, kehutanan, dan perikanan.</li>
+            <li>Menganalisis contoh model ekonomi hijau di gambut, termasuk agroforestri rawa dan komoditas ramah gambut.</li>
+            <li>Mengembangkan gagasan usaha berbasis ekonomi hijau yang layak dan berorientasi jangka panjang di desa gambut.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 5. URAIAN MATERI EKONOMI HIJAU -->
+      <section id="uraian-materi">
+        <h2><span class="pill">Bagian 5</span> Uraian Materi Ekonomi Hijau</h2>
+
+        <h3>5.1 Memahami Konsep Dasar Ekonomi Hijau</h3>
+        <p>
+          Ekonomi hijau adalah pendekatan pembangunan yang menekankan pertumbuhan ekonomi sekaligus memastikan keberlanjutan lingkungan
+          dan kesejahteraan sosial. Prinsip-prinsip utamanya meliputi efisiensi penggunaan sumber daya, pengurangan emisi karbon,
+          perlindungan ekosistem, dan peningkatan kesejahteraan masyarakat.
+        </p>
+        <p>
+          Dalam berbagai sektor seperti pertanian, energi, kehutanan, dan industri, ekonomi hijau mendorong transisi dari praktik
+          ekstraktif menuju praktik yang lebih bersih, sirkular, dan rendah risiko lingkungan. Konsep ini relevan bagi pembangunan
+          berkelanjutan karena membantu menjaga kualitas lingkungan, memperkuat ketahanan ekonomi, serta meminimalkan kerentanan
+          masyarakat terhadap perubahan iklim.
+        </p>
+
+        <h3>5.2 Mengidentifikasi Karakteristik dan Fungsi Ekologis Gambut</h3>
+        <p>
+          Ekosistem gambut tersusun dari akumulasi bahan organik yang terendam dan terdekomposisi sangat lambat. Karakteristik utama
+          gambut adalah tingkat keasaman tinggi, kandungan air sangat besar, dan kedalaman yang dapat mencapai lebih dari tiga meter.
+        </p>
+        <p>
+          Secara ekologis, gambut berfungsi sebagai penyimpan karbon raksasa, pengatur tata air, penyedia habitat unik, dan penyangga
+          keanekaragaman hayati rawa. Gambut harus tetap basah untuk menjaga stabilitas ekologisnya. Pengeringan gambut meningkatkan
+          risiko penurunan permukaan tanah, kebakaran, dan hilangnya fungsi ekosistem secara drastis.
+        </p>
+
+        <h3>5.3 Menganalisis Tantangan Pengelolaan Gambut</h3>
+        <p>
+          Tantangan utama pengelolaan gambut meliputi degradasi akibat pembukaan lahan yang tidak terkendali, pembangunan kanal yang
+          menurunkan muka air tanah, dan kebakaran yang berulang terutama pada musim kemarau. Penanaman komoditas yang membutuhkan
+          drainase dalam mendorong kerusakan ekosistem dan kehilangan fungsi hidrologis.
+        </p>
+        <p>
+          Tantangan sosial-ekonomi juga muncul, seperti keterbatasan pengetahuan masyarakat tentang teknik budidaya ramah gambut dan
+          minimnya akses pasar untuk komoditas lokal. Diperlukan analisis menyeluruh untuk memahami hubungan faktor ekologis, ekonomi,
+          dan sosial dalam pengelolaan gambut.
+        </p>
+
+        <h3>5.4 Menjelaskan Konsep Bisnis Berkelanjutan di Lanskap Gambut</h3>
+        <p>
+          Bisnis berkelanjutan di kawasan gambut mengutamakan keberlanjutan fungsi ekosistem sambil memberikan nilai ekonomi bagi
+          masyarakat. Konsep ini menekankan pemanfaatan komoditas dan jasa lingkungan yang sesuai dengan kondisi gambut basah,
+          mengurangi ketergantungan pada drainase, serta menghindari praktik yang mempercepat degradasi.
+        </p>
+        <p>
+          Model bisnis berkelanjutan mencakup diversifikasi komoditas, pengelolaan berbasis masyarakat, sistem agroforestri rawa,
+          pemulihan ekosistem sebagai bagian dari rantai nilai, serta rantai pasok rendah emisi. Tujuannya adalah menciptakan usaha
+          yang produktif, rendah risiko, dan berkontribusi pada pengurangan emisi serta peningkatan kesejahteraan.
+        </p>
+
+        <h3>5.5 Mengidentifikasi Praktik Pengelolaan Ramah Gambut</h3>
+        <p>
+          Praktik ramah gambut berfokus pada pemanfaatan komoditas yang mampu tumbuh pada kondisi basah tanpa memerlukan drainase besar.
+          Contohnya jelutung rawa untuk getah, sagu, purun untuk kerajinan, kopi liberika rawa, nanas rawa, dan tanaman hortikultura
+          tertentu. Teknik budidaya mencakup pengelolaan air berbasis <em>canal blocking</em>, pemeliharaan muka air tanah, penggunaan
+          bibit unggul adaptif, serta penerapan teknik produksi rendah emisi.
+        </p>
+        <p>
+          Selain tanaman, pendekatan lain adalah perikanan rawa, budidaya ikan lokal, dan pemanfaatan lahan tergenang untuk usaha
+          produktif berbasis ekosistem. Pendekatan ini membantu menjaga fungsi hidrologi gambut sekaligus meningkatkan pendapatan
+          masyarakat.
+        </p>
+
+        <h3>5.6 Menganalisis Contoh Model Ekonomi Hijau di Gambut</h3>
+        <p>
+          Model ekonomi hijau di gambut dapat dilihat dari berbagai inisiatif, seperti agroforestri rawa yang mengombinasikan tanaman
+          tahunan (jelutung, sagu) dengan komoditas pangan; budidaya sagu yang mendorong ketahanan pangan; serta pemanfaatan purun
+          yang membuka peluang industri kerajinan dan penguatan UMKM.
+        </p>
+        <p>
+          Perikanan rawa berkelanjutan memanfaatkan kubah-kubah air alami untuk budidaya ikan asli gambut. Ekowisata rawa memanfaatkan
+          keunikan biodiversitas gambut sebagai atraksi budaya dan lingkungan. Contoh-contoh tersebut menunjukkan bahwa produktivitas
+          dan pelestarian dapat berjalan bersamaan.
+        </p>
+
+        <h3>5.7 Mengembangkan Kemampuan Merancang Usaha Berbasis Ekonomi Hijau</h3>
+        <p>
+          Perancangan usaha berbasis ekonomi hijau dimulai dari identifikasi potensi sumber daya, analisis pasar, dan pencocokan
+          komoditas dengan kondisi ekologis gambut basah. Peserta diharapkan mampu menyusun gagasan usaha yang menekankan nilai
+          tambah, keberlanjutan, dan kesinambungan usaha.
+        </p>
+        <p>
+          Komponen penting meliputi analisis rantai nilai, aspek sosial dan kelembagaan, serta strategi mitigasi risiko lingkungan.
+          Usaha yang dirancang harus mempertimbangkan konservasi, restorasi, dan pembatasan emisi, serta berorientasi pada
+          kebermanfaatan jangka panjang bagi komunitas.
+        </p>
+      </section>
+
+      <!-- 6. AKTIVITAS & IMPLEMENTASI -->
+      <section id="aktivitas-implementasi">
+        <h2><span class="pill">Bagian 6</span> Aktivitas & Implementasi Ekonomi Hijau dan Bisnis Berkelanjutan</h2>
+
+        <h3>6.1 Implementasi dan Rencana Aksi Ekonomi Hijau di Wilayah Studi</h3>
+        <p>
+          Rancangan pertumbuhan ekonomi hijau di Provinsi Jambi mengacu pada Peraturan Gubernur Jambi Nomor 7 Tahun 2024 tentang
+          pelaksanaan Peraturan Daerah Provinsi Jambi Nomor 4 Tahun 2023 mengenai rencana pertumbuhan ekonomi hijau. Fokus kegiatan
+          diarahkan pada Rencana Aksi Adaptasi Perubahan Iklim Daerah.
+        </p>
+        <p>Roadmap ekonomi hijau di empat desa meliputi:</p>
+        <ul>
+          <li>Memasukkan ekonomi hijau ke dalam RPJMD dan dokumen perencanaan daerah lainnya.</li>
+          <li>Kolaborasi multi-pihak: pemerintah, swasta, akademisi, dan masyarakat.</li>
+          <li>Pembentukan kelembagaan pengelola ekonomi hijau di tingkat desa/lanskap.</li>
+          <li>Peningkatan kesadaran dan edukasi masyarakat tentang fungsi lingkungan dan dampak kerusakan lingkungan.</li>
+          <li>Pilot project/proyek percontohan di berbagai sektor.</li>
+          <li>Pengembangan energi terbarukan.</li>
+          <li>Pengelolaan sampah dengan prinsip ekonomi sirkular (reduce, reuse, recycle).</li>
+          <li>Agroforestri di lahan sawit.</li>
+          <li>Peningkatan akses dan kualitas air bersih.</li>
+          <li>Pembiayaan hijau, termasuk skema perdagangan karbon nasional dan internasional.</li>
+        </ul>
+        <p>
+          Secara umum, kondisi keberlanjutan menunjukkan tahap transisi dari pola pertanian konvensional menuju pertanian berkelanjutan.
+          Penguatan kapasitas petani, akses ke pembiayaan hijau, serta integrasi rantai nilai menjadi faktor kunci untuk memastikan
+          keberlanjutan bisnis.
+        </p>
+      </section>
+
+      <!-- 7. PANDAN SEJAHTERA -->
+      <section id="pandan-sejahtera">
+        <h2><span class="pill">Bagian 7</span> Potensi Bisnis Berkelanjutan Desa Pandan Sejahtera</h2>
+
+        <h3>7.1 Kondisi Eksisting Bisnis Berkelanjutan</h3>
+        <p>
+          Desa Pandan Sejahtera di Kecamatan Geragai, Kabupaten Tanjung Jabung Timur, memiliki luas wilayah sekitar 2.500–3.000 hektar,
+          yang sebagian besar terdiri atas lahan gambut datar hingga sangat datar dengan ketinggian 0–3 meter di atas permukaan laut.
+          Desa ini berbatasan dengan Desa Pandan Makmur (utara), Desa Rantau Panjang (selatan), Desa Sponjen (barat), dan kawasan hutan
+          rawa serta kanal gambut di sebelah timur.
+        </p>
+        <p>
+          Bentang alam desa didominasi rawa dan sistem hidrologi khas gambut dengan jaringan kanal dan parit buatan masyarakat. Tanah
+          gambut dangkal hingga sedang (1–3 meter) mendominasi, menjadikan desa ini rentan terhadap kekeringan dan kebakaran pada
+          musim kemarau namun juga kaya potensi untuk pertanian dan perkebunan berbasis gambut.
+        </p>
+
+        <h3>7.2 Sektor Perkebunan</h3>
+        <p>
+          Sektor perkebunan menjadi tulang punggung ekonomi desa, terutama kelapa sawit yang mencapai sekitar 90% dari komoditas
+          perkebunan masyarakat, sedangkan pinang, kopi, dan kelapa hanya diusahakan dalam skala terbatas. Praktik budidaya berkelanjutan,
+          teknologi ramah lingkungan, serta diversifikasi produk menjadi agenda penting untuk meningkatkan nilai tambah dan ketahanan
+          ekonomi petani.
+        </p>
+
+        <h3>7.3 Sektor Pertanian dan Tanaman Pangan</h3>
+        <p>
+          Komoditas pertanian meliputi jagung dan ubi kayu, serta sayur-sayuran dan tanaman hortikultura (cabai, tomat, terung, kangkung)
+          dalam skala kecil di lahan pekarangan atau tegalan. Tanaman buah seperti pisang, pepaya, dan kelapa ditanam secara tumpang sari
+          dengan tanaman perkebunan, memberikan tambahan pendapatan dan ketahanan pangan rumah tangga.
+        </p>
+
+        <h3>7.4 Sektor Peternakan</h3>
+        <p>
+          Desa Pandan Sejahtera memiliki potensi pengembangan peternakan (sapi, kambing, ayam, itik) sebagai penopang ekonomi rumah tangga.
+          Pengembangan sapi cukup berhasil melalui sistem pengelolaan individu, bukan secara komunal, sehingga lebih mudah dalam hal
+          pengawasan dan pemeliharaan.
+        </p>
+
+        <h3>7.5 Sektor Kehutanan dan Rantai Pasok</h3>
+        <p>
+          Pada sektor kehutanan, komoditas utama berupa jelutung rawa dan pulai rawa yang menjadi aset penting ekologi dan ekonomi.
+          Untuk rantai pasok, komoditas perkebunan (sawit, pinang, kopi), pertanian, peternakan, kehutanan, industri rumah tangga,
+          hingga perdagangan karbon memiliki jejaring pelaku mulai petani/pelaku usaha, tengkulak, pengepul, hingga industri dan pasar
+          nasional maupun internasional.
+        </p>
+      </section>
+
+      <!-- 8. PANDAN MAKMUR -->
+      <section id="pandan-makmur">
+        <h2><span class="pill">Bagian 8</span> Potensi Bisnis Berkelanjutan Desa Pandan Makmur</h2>
+
+        <h3>8.1 Kondisi Eksisting Bisnis Berkelanjutan</h3>
+        <p>
+          Desa Pandan Makmur memiliki potensi sumber daya alam besar di sektor pertanian, perkebunan, dan perikanan. Sebagian besar
+          penduduk menggantungkan hidup pada usaha tani dan usaha kecil menengah berbasis sumber daya lokal. Wilayah desa termasuk
+          dataran rendah dengan sebagian lahan gambut dangkal yang masih produktif.
+        </p>
+
+        <h3>8.2 Sektor Perkebunan</h3>
+        <p>
+          Sekitar 92% dari total luas lahan perkebunan didominasi kelapa sawit dan pinang, sedangkan ±8% untuk tanaman pangan dan palawija.
+          Desa ini masuk zona budidaya pertanian dan perkebunan berkelanjutan sesuai RTRW Kabupaten Tanjung Jabung Timur, dengan prinsip
+          pemanfaatan lahan terkendali dan konservasi air tanah gambut.
+        </p>
+        <p>
+          Arah pengelolaan meliputi: pengembangan perkebunan rakyat berbasis komoditas unggulan, integrasi dengan program pemulihan dan
+          pembasahan gambut, pengelolaan tata air melalui sekat kanal dan infrastruktur hidrologi, serta pengembangan pola tanam campuran
+          (agroforestri sawit–pinang–tanaman hutan).
+        </p>
+
+        <h3>8.3 Sektor Pertanian dan Tanaman Pangan</h3>
+        <p>
+          Lahan pertanian dan tanaman pangan hanya sekitar 2% dari total wilayah. Keterbatasan lahan mendorong intensifikasi melalui
+          tumpangsari, rotasi tanaman, dan pemanfaatan pekarangan sebagai lahan produktif. Pertanian tetap penting sebagai penyangga
+          ketahanan pangan dan sumber penghasilan tambahan.
+        </p>
+
+        <h3>8.4 Sektor Peternakan</h3>
+        <p>
+          Sektor peternakan (sapi potong, kambing, ayam, itik) menjadi bagian dari sistem pertanian terpadu. Usaha masih berskala kecil,
+          tetapi memiliki potensi integrasi dengan lahan perkebunan (misalnya pemanfaatan limbah tanaman sebagai pakan) dalam kerangka
+          pertanian berkelanjutan.
+        </p>
+
+        <h3>8.5 Sektor Kehutanan, Perikanan, dan Industri Rumah Tangga</h3>
