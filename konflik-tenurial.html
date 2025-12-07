@@ -1,71 +1,575 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Konflik Tenurial — Bahan Ajar</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bahan Ajar Konflik Tenurial di Wilayah Gambut</title>
+
   <style>
-    body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:0;background:#f7fafc;color:#111}
-    header{background:#0f5f6a;color:#fff;padding:14px 18px}
-    header a{color:#fff;text-decoration:none;margin-right:12px}
-    main{max-width:900px;margin:20px auto;padding:0 18px}
-    h1{margin:6px 0 8px;font-size:20px}
-    .meta{color:#6b7280;font-size:13px;margin-bottom:14px}
-    section.card{background:#fff;padding:14px;border-radius:8px;box-shadow:0 1px 6px rgba(0,0,0,.06);margin-bottom:12px}
-    ul{margin:8px 0 12px}
-    .btn{background:#0f5f6a;color:#fff;padding:8px 10px;border-radius:6px;text-decoration:none}
-    footer{max-width:900px;margin:12px auto;color:#6b7280;padding:0 18px}
+    :root {
+      --bg-body: #fdf2f8;
+      --bg-card: #fef9fb;
+      --pink-main: #be185d;
+      --pink-soft: #f472b6;
+      --pink-deep: #9d174d;
+      --ink: #1f2933;
+      --muted: #6b7280;
+      --line: rgba(236, 72, 153, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, #f9a8d4 0, transparent 55%),
+        radial-gradient(circle at bottom right, #fecdd3 0, transparent 55%),
+        var(--bg-body);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    main.container {
+      max-width: 1080px;
+      margin: 1.5rem auto;
+      padding: 1rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 2rem 1.8rem;
+      box-shadow:
+        0 18px 40px rgba(190, 24, 93, 0.25),
+        0 0 0 1px rgba(248, 187, 208, 0.9);
+      border: 1px solid rgba(244, 114, 182, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 16px;
+      border: 1px dashed rgba(236, 72, 153, 0.35);
+      pointer-events: none;
+    }
+
+    header.hero {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.8rem;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--pink-deep);
+      font-weight: 700;
+      background: rgba(255, 241, 246, 0.98);
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 114, 182, 0.7);
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 30%, #fee2f2 0, #f472b6 45%, #9d174d 100%);
+      box-shadow: 0 0 8px rgba(236, 72, 153, 0.8);
+    }
+
+    h1 {
+      margin: 0.6rem 0 0.3rem;
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
+      color: var(--pink-deep);
+      text-shadow: 0 0 14px rgba(244, 114, 182, 0.7);
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .pengajar {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      color: #9d174d;
+      font-weight: 600;
+    }
+
+    nav.toc {
+      margin: 1.5rem 0 1.9rem;
+      padding: 1rem 1.3rem;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+      border: 1px solid rgba(236, 72, 153, 0.5);
+      position: relative;
+      z-index: 1;
+    }
+
+    nav.toc h2 {
+      margin: 0 0 0.6rem;
+      font-size: 1rem;
+      color: #9d174d;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    nav.toc h2 span.icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 20%, #f9a8d4 0, #ec4899 55%, #9d174d 100%);
+      box-shadow: 0 0 8px rgba(219, 39, 119, 0.8);
+    }
+
+    nav.toc ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      columns: 2;
+      column-gap: 2.5rem;
+      font-size: 0.9rem;
+    }
+
+    nav.toc li {
+      margin: 0.12rem 0;
+      break-inside: avoid;
+    }
+
+    nav.toc a {
+      text-decoration: none;
+      color: #9d174d;
+    }
+
+    nav.toc a:hover {
+      text-decoration: underline;
+      color: #be185d;
+    }
+
+    section {
+      margin: 2rem 0;
+      padding-top: 0.7rem;
+      border-top: 2px solid var(--line);
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 1.25rem;
+      color: #be185d;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    h2 .pill {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9d174d;
+      background: #fce7f3;
+      padding: 0.12rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(236, 72, 153, 0.5);
+    }
+
+    h3 {
+      margin-top: 1.1rem;
+      font-size: 1.05rem;
+      color: #be185d;
+    }
+
+    p {
+      margin: 0.4rem 0;
+      font-size: 0.95rem;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    ul, ol {
+      margin: 0.4rem 0 0.9rem 1.15rem;
+      font-size: 0.95rem;
+    }
+
+    li {
+      margin: 0.18rem 0;
+    }
+
+    .callout {
+      border-radius: 14px;
+      padding: 0.8rem 1rem;
+      background: linear-gradient(90deg, #fdf2f8, #fee2f2);
+      border: 1px solid rgba(236, 72, 153, 0.5);
+      font-size: 0.9rem;
+      color: #9d174d;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9d174d;
+      background: #fdf2f8;
+      padding: 0.18rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 114, 182, 0.7);
+      margin-bottom: 0.35rem;
+    }
+
+    .evaluasi-box {
+      background: #fdf2f8;
+      border-radius: 16px;
+      border: 1px dashed rgba(236, 72, 153, 0.9);
+      padding: 0.9rem 1rem 1.1rem;
+      margin-top: 0.6rem;
+    }
+
+    .evaluasi-box li {
+      margin: 0.35rem 0 0.7rem;
+    }
+
+    .footer-note {
+      margin-top: 1.2rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      padding-top: 0.6rem;
+    }
+
+    @media (max-width: 768px) {
+      main.container {
+        margin: 0.8rem auto 1.4rem;
+        padding: 0.7rem;
+      }
+
+      .card {
+        padding: 1.4rem 1rem;
+      }
+
+      .card::before {
+        inset: 10px;
+      }
+
+      nav.toc ul {
+        columns: 1;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header>
-    <a href="index.html">&larr; Kembali</a>
-    <strong>Konflik Tenurial</strong>
-  </header>
+  <main class="container">
+    <article class="card">
+      <header class="hero">
+        <div class="eyebrow">
+          <span class="dot"></span>
+          Modul Bahan Ajar – Konflik Tenurial
+        </div>
+        <h1>BAHAN AJAR KONFLIK TENURIAL DI WILAYAH GAMBUT</h1>
+        <p class="subtitle">
+          Memahami akar konflik, aktor, dan strategi penyelesaian di kawasan gambut.
+        </p>
+        <p class="pengajar">
+          Pengajar: Dr. Ir. Fazriyas, M.Si.
+        </p>
+      </header>
 
-  <main>
-    <h1>Konsep singkat</h1>
-    <div class="meta">Apa itu konflik tenurial & kenapa penting dalam restorasi gambut</div>
-    <section class="card">
-      <p>Konflik tenurial adalah perselisihan kepemilikan, hak guna, atau akses atas lahan antara pihak-pihak (masyarakat, perusahaan, negara). Di kawasan gambut, konflik ini sering timbul karena overlapping izin, klaim adat, dan perubahan tata guna lahan yang cepat. Konflik melemahkan upaya restorasi apabila intervensi teknis (sekat kanal, pembasahan) tidak mempertimbangkan status kepemilikan dan hak masyarakat.</p>
-    </section>
+      <!-- DAFTAR ISI -->
+      <nav class="toc">
+        <h2><span class="icon"></span>Daftar Isi</h2>
+        <ul>
+          <li><a href="#tujuan">Tujuan Pembelajaran</a></li>
+          <li><a href="#konsep">Konsep Konflik Tenurial</a></li>
+          <li><a href="#model">Model Pembelajaran Konflik Tenurial</a></li>
+          <li><a href="#strategi">Strategi Penyelesaian Konflik Tenurial</a></li>
+          <li><a href="#rencana-aksi">Bentuk Struktur Rencana Aksi Sengketa Tanah</a></li>
+          <li><a href="#evaluasi">Evaluasi & Tugas</a></li>
+          <li><a href="#pustaka">Daftar Pustaka</a></li>
+        </ul>
+      </nav>
 
-    <h2>Tujuan Pembelajaran</h2>
-    <section class="card">
-      <ul>
-        <li>Memahami sumber konflik tenurial di lanskap gambut.</li>
-        <li>Menganalisis dampak konflik terhadap kegiatan pembasahan dan restorasi.</li>
-        <li>Mengidentifikasi pendekatan penyelesaian yang adil (inclusive).</li>
-      </ul>
-    </section>
+      <!-- TUJUAN PEMBELAJARAN (versi sederhana) -->
+      <section id="tujuan">
+        <h2><span class="pill">Bagian 1</span> Tujuan Pembelajaran</h2>
+        <div class="callout">
+          <p class="badge">Setelah mengikuti bahan ajar ini, mahasiswa diharapkan mampu:</p>
+          <ul>
+            <li>Menjelaskan pengertian konflik tenurial dan contoh-contohnya di wilayah gambut.</li>
+            <li>Menyebutkan penyebab utama konflik tenurial (misalnya tumpang tindih izin, batas tidak jelas, dan lemahnya pengakuan hak masyarakat).</li>
+            <li>Mengidentifikasi pihak-pihak (aktor) yang terlibat dan hak/klaim yang diperdebatkan dalam konflik tenurial.</li>
+            <li>Menjelaskan peran dasar hukum dan lembaga seperti GTRA dalam penyelesaian konflik tenurial.</li>
+            <li>Mengusulkan secara sederhana langkah penyelesaian konflik tenurial dengan mempertimbangkan aspek sosial, ekonomi, lingkungan, dan hukum.</li>
+          </ul>
+        </div>
+      </section>
 
-    <h2>Pokok Materi</h2>
-    <section class="card">
-      <ol>
-        <li>Dimensi konflik: legal-administratif, adat, ekonomi.</li>
-        <li>Contoh kasus: tumpang tindih izin perhutanan sosial vs konsesi.</li>
-        <li>Metode penyelesaian: mediasi, verifikasi tenure, pendekatan berbasis hak.</li>
-      </ol>
-    </section>
+      <!-- KONSEP KONFLIK TENURIAL -->
+      <section id="konsep">
+        <h2><span class="pill">Bagian 2</span> Konsep Konflik Tenurial</h2>
+        <p>
+          Konflik tenurial merupakan perselisihan atau sengketa yang muncul akibat ketidakjelasan, tumpang-tindih, atau perebutan
+          hak kepemilikan, hak penguasaan, hak pemanfaatan, dan akses terhadap lahan serta sumber daya alam antara dua pihak
+          atau lebih. Konflik ini dapat terjadi antara: masyarakat dan pemerintah, masyarakat dan perusahaan, antar-komunitas,
+          pemerintah pusat dan pemerintah daerah, perusahaan dan perusahaan, serta antara masyarakat dan masyarakat.
+        </p>
+        <p>
+          Konflik tenurial biasanya muncul sebagai konsekuensi dari ketidakteraturan sistem tenurial yang meliputi hak adat
+          (<em>customary tenure</em>), konsesi negara, izin perusahaan, dan klaim-klaim historis masyarakat lokal.
+        </p>
+        <p>
+          Konflik tenurial di wilayah gambut merupakan persoalan yang sangat kompleks karena melibatkan klaim kepemilikan, hak akses,
+          dan hak pengelolaan yang berbeda antara masyarakat, pemerintah, dan sektor swasta. Wilayah gambut memiliki fungsi ekologis
+          yang penting bagi hidrologi, penyimpanan karbon, dan keanekaragaman hayati, sehingga pemanfaatan yang tidak terkendali
+          sering menimbulkan ketegangan antar-aktor. Bahan ajar ini disusun untuk memberikan pemahaman menyeluruh kepada mahasiswa
+          mengenai akar konflik, karakteristik wilayah gambut, dan strategi penyelesaian yang dapat diterapkan di tingkat lokal maupun nasional.
+        </p>
+      </section>
 
-    <h2>Aktivitas Kelas / Tugas</h2>
-    <section class="card">
-      <ol>
-        <li>Studi kasus singkat (30 menit): analisis dokumen izin dan identifikasi pihak terkena dampak.</li>
-        <li>Role-play: mediasi antara kelompok masyarakat dan perusahaan (45 menit).</li>
-        <li>Tugas individu: buat rekomendasi langkah verifikasi tenure (max 1 halaman).</li>
-      </ol>
-    </section>
+      <!-- MODEL PEMBELAJARAN KONFLIK TENURIAL -->
+      <section id="model">
+        <h2><span class="pill">Bagian 3</span> Model Pembelajaran Konflik Tenurial</h2>
 
-    <h2>Referensi & Bahan Tambahan</h2>
-    <section class="card">
-      <ul>
-        <li>Dokumen: Peraturan terkait perizinan kehutanan dan perhutanan sosial (unduh dari situs resmi).</li>
-        <li>Artikel: metodologi verifikasi tenure (ringkasan PDF).</li>
-        <li><a class="btn" href="konflik-tenurial-case.html">Buka kasus contoh</a></li>
-      </ul>
-    </section>
+        <h3>A. Bentuk dan Dinamika Konflik Tenurial</h3>
+        <p>
+          Konflik tenurial di gambut biasanya muncul dalam bentuk perselisihan antara masyarakat dengan perusahaan pemegang izin
+          seperti HGU atau HTI, perselisihan antara masyarakat dengan pemerintah terkait penetapan kawasan hutan, serta konflik
+          internal antar-desa akibat batas wilayah yang tidak jelas. Akar konflik dapat berupa ketidakjelasan batas lahan, tumpang
+          tindih izin, perbedaan peta tenurial, pelanggaran prosedur konsultasi publik, dan perubahan fungsi lahan akibat drainase,
+          kebakaran, atau restorasi.
+        </p>
+        <p>
+          Ketika dinamika ini berlanjut tanpa mekanisme penyelesaian yang jelas, konflik dapat berkembang menjadi sengketa kronis
+          yang sulit diselesaikan dan berpotensi menimbulkan ketegangan berkepanjangan.
+        </p>
+
+        <h3>B. Penyebab Utama Konflik Tenurial</h3>
+        <ul>
+          <li>
+            <strong>Tumpang tindih perizinan dan klaim lahan</strong><br />
+            Terjadi ketika pemerintah menerbitkan izin kehutanan, perkebunan, atau pertambangan di atas lahan yang telah dikuasai
+            masyarakat adat atau masyarakat lokal.
+          </li>
+          <li>
+            <strong>Ketidakjelasan status dan batas wilayah</strong><br />
+            Banyak wilayah pedesaan dan kawasan hutan belum memiliki pemetaan batas yang jelas, sehingga menimbulkan interpretasi
+            berbeda mengenai hak penguasaan.
+          </li>
+          <li>
+            <strong>Perubahan kebijakan negara</strong><br />
+            Reformasi, desentralisasi, atau revisi tata ruang sering menyebabkan pergeseran kewenangan yang memicu konflik baru.
+          </li>
+          <li>
+            <strong>Lemahnya pengakuan hak masyarakat adat</strong><br />
+            Masyarakat adat sering memegang hak secara turun-temurun, namun kurang mendapat pengakuan hukum formal.
+          </li>
+          <li>
+            <strong>Masuknya investasi skala besar</strong><br />
+            Konsesi industri (perkebunan sawit, HTI, tambang) sering memicu perebutan ruang hidup dan ruang akses masyarakat terhadap
+            hutan, air, dan tanah.
+          </li>
+        </ul>
+
+        <h3>C. Dampak Konflik Tenurial</h3>
+        <p>
+          Konflik tenurial memberikan dampak signifikan bagi kehidupan sosial, ekonomi, dan lingkungan. Secara sosial, konflik dapat
+          menyebabkan ketegangan antar-kelompok, hilangnya keharmonisan desa, dan menurunnya akses masyarakat terhadap sumber daya
+          yang selama ini menopang kehidupannya.
+        </p>
+        <p>
+          Secara ekonomi, konflik dapat menghentikan aktivitas perusahaan, mengurangi pendapatan masyarakat, dan menghambat investasi.
+          Secara lingkungan, konflik sering berujung pada pembukaan lahan ilegal, kebakaran gambut, dan kerusakan struktur hidrologi
+          yang dapat berdampak jangka panjang terhadap fungsi ekosistem.
+        </p>
+      </section>
+
+      <!-- STRATEGI PENYELESAIAN -->
+      <section id="strategi">
+        <h2><span class="pill">Bagian 4</span> Strategi Penyelesaian Konflik Tenurial di Lahan Masyarakat</h2>
+        <p>
+          Salah satu model strategi penyelesaian konflik tenurial di lahan masyarakat adalah pembentukan Satgas atau Tim Gugus Tugas
+          Reforma Agraria (GTRA) pada setiap kabupaten (misalnya Tanjung Jabung Timur dan Muaro Jambi) dengan dasar hukum sebagai berikut:
+        </p>
+        <ul>
+          <li>UUD 1945 Pasal 33.</li>
+          <li>Undang-Undang (UU) Nomor 5 Tahun 1960 tentang Peraturan Dasar Pokok-Pokok Agraria (UUPA).</li>
+          <li>
+            Peraturan Presiden (Perpres) Nomor 86 Tahun 2018: Peraturan spesifik yang menjadi dasar pembentukan Gugus Tugas Reforma
+            Agraria (GTRA) di tingkat pusat dan daerah.
+          </li>
+          <li>
+            Peraturan Presiden (Perpres) Nomor 62 Tahun 2023: Perpres terbaru yang diterbitkan untuk mempercepat pelaksanaan program
+            reforma agraria, termasuk mengoptimalkan peran GTRA.
+          </li>
+        </ul>
+        <p>Adapun fungsi dan tugas utama GTRA antara lain:</p>
+        <ul>
+          <li>
+            <strong>Mengurangi kemiskinan dan menciptakan lapangan kerja</strong><br />
+            Memberikan akses tanah bagi petani kecil dan masyarakat miskin.
+          </li>
+          <li>
+            <strong>Menyelesaikan konflik agraria</strong><br />
+            Menangani sengketa pertanahan yang terjadi di berbagai daerah.
+          </li>
+          <li>
+            <strong>Menata aset dan akses</strong><br />
+            Melakukan penataan aset (seperti legalisasi tanah) dan penataan akses (pemberdayaan ekonomi masyarakat).
+          </li>
+        </ul>
+      </section>
+
+      <!-- RENCANA AKSI -->
+      <section id="rencana-aksi">
+        <h2><span class="pill">Bagian 5</span> Bentuk Struktur Rencana Aksi Sengketa Tanah</h2>
+        <p>
+          Bentuk struktur rencana aksi sengketa tanah dapat disusun untuk masing-masing desa sebagai kerangka awal dalam merancang
+          penyelesaian konflik tenurial di tingkat lokal. Struktur tersebut dapat diisi melalui diskusi kelas atau tugas kelompok.
+        </p>
+
+        <h3>A. Desa Pandan Sejahtera</h3>
+        <p>
+          Bentuk Struktur Rencana Aksi Sengketa Tanah pada Desa Pandan Sejahtera dapat memuat: ringkasan konflik, aktor, objek sengketa,
+          tujuan penyelesaian, langkah strategis, peran lembaga, dan indikator keberhasilan.
+        </p>
+
+        <h3>B. Desa Pandan Makmur</h3>
+        <p>
+          Bentuk Struktur Rencana Aksi Sengketa Tanah pada Desa Pandan Makmur dapat disusun serupa dengan penyesuaian konteks sosial,
+          ekonomi, dan ekologis yang ada di desa tersebut.
+        </p>
+
+        <h3>C. Desa Sponjen</h3>
+        <p>
+          Bentuk Struktur Rencana Aksi Sengketa Tanah pada Sponjen dapat difokuskan pada pemetaan aktor, batas wilayah, dan hubungan
+          desa dengan pihak luar (perusahaan/pemerintah).
+        </p>
+
+        <h3>D. Desa Rantau Panjang</h3>
+        <p>
+          Bentuk Struktur Rencana Aksi Sengketa Tanah pada Desa Rantau Panjang dapat memasukkan aspek hidrologi gambut, sejarah
+          klaim lahan, dan peran GTRA dalam fasilitasi mediasi dan negosiasi.
+        </p>
+      </section>
+
+      <!-- EVALUASI & TUGAS -->
+      <section id="evaluasi">
+        <h2><span class="pill">Bagian 6</span> Evaluasi & Tugas</h2>
+        <p>Gunakan pertanyaan dan tugas berikut sebagai evaluasi pemahaman mahasiswa.</p>
+
+        <div class="evaluasi-box">
+          <h3>A. Pertanyaan Uraian</h3>
+          <ol>
+            <li>
+              Jelaskan secara singkat apa yang dimaksud dengan konflik tenurial dan mengapa konflik ini sering muncul di wilayah gambut!
+            </li>
+            <li>
+              Sebutkan dan jelaskan tiga penyebab utama konflik tenurial yang sering terjadi antara masyarakat dan perusahaan di kawasan gambut!
+            </li>
+            <li>
+              Jelaskan tiga contoh dampak konflik tenurial terhadap:<br />
+              a) kehidupan sosial masyarakat,<br />
+              b) kondisi ekonomi, dan<br />
+              c) lingkungan (khususnya ekosistem gambut).
+            </li>
+            <li>
+              Apa fungsi utama GTRA (Gugus Tugas Reforma Agraria) dalam konteks penyelesaian konflik tenurial di lahan masyarakat?
+              Berikan minimal dua fungsi!
+            </li>
+            <li>
+              Mengapa pengakuan hak masyarakat adat menjadi isu penting dalam penyelesaian konflik tenurial? Jelaskan kaitannya dengan
+              klaim historis dan sistem hukum formal.
+            </li>
+          </ol>
+
+          <h3>B. Tugas 1 – Analisis Kasus Konflik Tenurial di Desa Gambut (Kelompok)</h3>
+          <p>
+            Berikan satu contoh konflik tenurial (nyata atau studi fiktif yang realistis) di desa gambut. Dalam laporan singkat (3–5 halaman),
+            mahasiswa diminta untuk:
+          </p>
+          <ul>
+            <li>Menggambarkan lokasi dan konteks ekologi (karakteristik gambut).</li>
+            <li>Mengidentifikasi para aktor yang terlibat (masyarakat adat/lokal, perusahaan, pemerintah, dll.).</li>
+            <li>Menguraikan hak/klaim yang dipersengketakan (kepemilikan, penguasaan, pemanfaatan, akses).</li>
+            <li>
+              Menganalisis akar konflik berdasarkan kategori penyebab yang ada di bahan ajar (tumpang tindih izin, batas tidak jelas, dll.).
+            </li>
+            <li>
+              Mengusulkan strategi penyelesaian konflik yang:
+              <ul>
+                <li>memperhatikan dasar hukum yang relevan (UUPA, Perpres 86/2018, Perpres 62/2023, dll.),</li>
+                <li>sensitif terhadap aspek sosial dan budaya komunitas,</li>
+                <li>menjaga fungsi ekologis gambut.</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3>C. Tugas 2 – Penyusunan Rencana Aksi Sengketa Tanah (Individu)</h3>
+          <p>
+            Mahasiswa diminta menyusun <strong>Bentuk Struktur Rencana Aksi Sengketa Tanah</strong> untuk salah satu desa contoh
+            (Pandan Sejahtera, Pandan Makmur, Sponjen, atau Rantau Panjang) yang memuat:
+          </p>
+          <ul>
+            <li>Ringkasan singkat konflik (latar belakang, aktor, objek sengketa).</li>
+            <li>Tujuan penyelesaian yang ingin dicapai (sosial, ekonomi, ekologis, hukum).</li>
+            <li>
+              Langkah-langkah strategis (inventarisasi data, pemetaan partisipatif, mediasi, negosiasi, skema reforma agraria, dll.).
+            </li>
+            <li>Peran GTRA dan lembaga lain (pemerintah daerah, kementerian terkait, organisasi masyarakat sipil).</li>
+            <li>
+              Indikator keberhasilan (misalnya: berkurangnya konflik terbuka, adanya kesepakatan tertulis, akses masyarakat membaik,
+              tidak ada kebakaran di area sengketa, dll.).
+            </li>
+          </ul>
+        </div>
+
+        <p class="footer-note">
+          <strong>Catatan:</strong> Dosen dapat memodifikasi jumlah soal, bobot penilaian, dan format tugas (individu/kelompok)
+          sesuai kebutuhan perkuliahan.
+        </p>
+      </section>
+
+      <!-- DAFTAR PUSTAKA -->
+      <section id="pustaka">
+        <h2><span class="pill">Bagian 7</span> Daftar Pustaka</h2>
+        <ul>
+          <li>
+            Fitri, A., &amp; Sahide, M.A.K. (2017). “Tinjauan Tenurial Kawasan Gambut dalam Kerangka Kebijakan Kehutanan Indonesia.”
+            Jurnal Analisis Kebijakan Kehutanan.
+          </li>
+          <li>
+            Peraturan Presiden (Perpres) Nomor 86 Tahun 2018: Peraturan spesifik yang menjadi dasar pembentukan Gugus Tugas Reforma
+            Agraria (GTRA) di tingkat pusat dan daerah.
+          </li>
+          <li>
+            Peraturan Presiden (Perpres) Nomor 62 Tahun 2023: Perpres terbaru yang diterbitkan untuk mempercepat pelaksanaan program
+            reforma agraria, termasuk mengoptimalkan peran GTRA.
+          </li>
+          <li>
+            Santosa, M.A., &amp; Kurniawan, G. (2016). “Konflik Tenurial dan Politik Agraria di Kawasan Gambut.”
+            Jurnal Hukum Lingkungan Indonesia.
+          </li>
+        </ul>
+      </section>
+    </article>
   </main>
-
-  <footer>Universitas Jambi — Modul Konflik Tenurial</footer>
 </body>
 </html>
